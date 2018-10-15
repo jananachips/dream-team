@@ -16,7 +16,7 @@ public class Charactermvt : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D variable)
 	{
 		Debug.Log("gothere");
-		if (variable.gameObject.tag == "ground")
+		if (variable.gameObject.tag == "Ground")
 			isGround = true;
 
 	}
