@@ -426,5 +426,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1861577645}
-  speed: 5
+  speed: 8
   jumpForce: 8

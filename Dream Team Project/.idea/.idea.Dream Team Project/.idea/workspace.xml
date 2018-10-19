@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ac281bc-b5df-4fb7-847d-d22be36c4c9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dream Team Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dream Team Project/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/Charactermvt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/Charactermvt.cs" afterDir="false" />
-    </list>
+    <list default="true" id="7ac281bc-b5df-4fb7-847d-d22be36c4c9a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +43,7 @@
     <session id="-2089036057">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -67,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Script/Charactermvt.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+            <state relative-caret-position="106">
+              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
               <folding>
                 <marker date="1539627301202" expanded="false" signature="6:78" ph="..." />
                 <marker date="1539627301202" expanded="true" signature="121:878" ph="{...}" />
@@ -167,12 +165,12 @@
       <option name="presentableId" value="Default" />
       <updated>1539381207174</updated>
       <workItem from="1539381218314" duration="4300000" />
-      <workItem from="1539626988768" duration="309000" />
+      <workItem from="1539626988768" duration="430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4609000" />
+    <option name="totallyTimeSpent" value="4730000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -185,7 +183,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="113" y="23" width="1284" height="634" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21175523" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -234,8 +231,8 @@
     <entry file="file://$PROJECT_DIR$/Assets/Script/Character mvt.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Script/Charactermvt.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        <state relative-caret-position="106">
+          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
           <folding>
             <marker date="1539627301202" expanded="false" signature="6:78" ph="..." />
             <marker date="1539627301202" expanded="true" signature="121:878" ph="{...}" />
