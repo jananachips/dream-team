@@ -26,7 +26,7 @@ public class _test_playerMovement : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Ground")
         {
-            Debug.Log("on ground");
+            //Debug.Log("on ground");
         }
     }
 }
