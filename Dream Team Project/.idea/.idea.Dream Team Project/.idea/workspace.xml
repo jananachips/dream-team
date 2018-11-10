@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ac281bc-b5df-4fb7-847d-d22be36c4c9a" name="Default Changelist" comment="" />
+    <list default="true" id="7ac281bc-b5df-4fb7-847d-d22be36c4c9a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dream Team Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dream Team Project/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dream Team Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dream Team Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,28 +50,41 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1" />
+          <entry key="cs" value="386" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="C#" value="386" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.file.types.open">
+        <counts>
           <entry key="C#" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Script/Charactermvt.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state relative-caret-position="195">
+              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
               <folding>
                 <marker date="1539627301202" expanded="false" signature="6:78" ph="..." />
                 <marker date="1539627301202" expanded="true" signature="121:878" ph="{...}" />
@@ -78,12 +96,47 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/UIManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+              <folding>
+                <marker date="1541809143424" expanded="true" signature="6:113" ph="..." />
+                <marker date="1541809143424" expanded="true" signature="155:273" ph="{...}" />
+                <marker date="1541809143424" expanded="true" signature="182:217" ph="{...}" />
+                <marker date="1541809143424" expanded="true" signature="242:270" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/PauseManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+              <folding>
+                <marker date="1541810899863" expanded="false" signature="6:78" ph="..." />
+                <marker date="1541810899863" expanded="true" signature="121:494" ph="{...}" />
+                <marker date="1541810899863" expanded="true" signature="206:279" ph="{...}" />
+                <marker date="1541810899863" expanded="true" signature="249:276" ph="{...}" />
+                <marker date="1541810899863" expanded="true" signature="308:492" ph="{...}" />
+                <marker date="1541810899863" expanded="true" signature="338:397" ph="{...}" />
+                <marker date="1541810899863" expanded="true" signature="429:489" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Charactermvt.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -91,6 +144,8 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Script/Character mvt.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Charactermvt.cs" />
+        <option value="$PROJECT_DIR$/Assets/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/PauseManager.cs" />
       </list>
     </option>
   </component>
@@ -101,7 +156,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="113" />
+    <option name="x" value="156" />
     <option name="y" value="23" />
     <option name="width" value="1284" />
     <option name="height" value="634" />
@@ -166,11 +221,12 @@
       <updated>1539381207174</updated>
       <workItem from="1539381218314" duration="4300000" />
       <workItem from="1539626988768" duration="430000" />
+      <workItem from="1541807990369" duration="1455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4730000" />
+    <option name="totallyTimeSpent" value="6185000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -182,9 +238,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="113" y="23" width="1284" height="634" extended-state="0" />
+    <frame x="156" y="23" width="1284" height="634" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21175523" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21497585" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -231,14 +288,43 @@
     <entry file="file://$PROJECT_DIR$/Assets/Script/Character mvt.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Script/Charactermvt.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        <state relative-caret-position="195">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
           <folding>
             <marker date="1539627301202" expanded="false" signature="6:78" ph="..." />
             <marker date="1539627301202" expanded="true" signature="121:878" ph="{...}" />
             <marker date="1539627301202" expanded="true" signature="368:462" ph="{...}" />
             <marker date="1539627301202" expanded="true" signature="517:876" ph="{...}" />
             <marker date="1539627301202" expanded="true" signature="747:872" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/UIManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <marker date="1541809143424" expanded="true" signature="6:113" ph="..." />
+            <marker date="1541809143424" expanded="true" signature="155:273" ph="{...}" />
+            <marker date="1541809143424" expanded="true" signature="182:217" ph="{...}" />
+            <marker date="1541809143424" expanded="true" signature="242:270" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/PauseManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+          <folding>
+            <marker date="1541810899863" expanded="false" signature="6:78" ph="..." />
+            <marker date="1541810899863" expanded="true" signature="121:494" ph="{...}" />
+            <marker date="1541810899863" expanded="true" signature="206:279" ph="{...}" />
+            <marker date="1541810899863" expanded="true" signature="249:276" ph="{...}" />
+            <marker date="1541810899863" expanded="true" signature="308:492" ph="{...}" />
+            <marker date="1541810899863" expanded="true" signature="338:397" ph="{...}" />
+            <marker date="1541810899863" expanded="true" signature="429:489" ph="{...}" />
           </folding>
         </state>
       </provider>
