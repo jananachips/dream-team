@@ -104,20 +104,20 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 91
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Name: Lever
+  m_Text: 'Name: InteractableBoxExample
 
-    Press E to push to the other side'
+    Hi, I''m box'
 --- !u!222 &222191617474971568
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000015259, y: -35.2}
-  m_SizeDelta: {x: 800, y: 68.8}
+  m_AnchoredPosition: {x: 11.5, y: -84.1}
+  m_SizeDelta: {x: 777, y: 120.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224455651185962256
 RectTransform:

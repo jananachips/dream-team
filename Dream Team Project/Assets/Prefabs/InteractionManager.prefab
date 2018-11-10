@@ -33,9 +33,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112474503009540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9878172, y: -0.092300065, z: 0.098895796}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 632.6809, y: -459.7057, z: -8.026104}
+  m_LocalScale: {x: 0.429, y: 0.687, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,6 +54,6 @@ MonoBehaviour:
   popOutWindow: {fileID: 1342172492897584, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
     type: 2}
   popText: {fileID: 114671306948740322, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67, type: 2}
-  xOffSet: 0
-  yOffSet: 2
-  zOffset: 0
+  InterOverallInfo: {fileID: 0}
+  allDialogues: {fileID: 0}
+  waitTime: 3

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InterOverallInfo : MonoBehaviour {
+public class AllObjectInfoList_Inter : MonoBehaviour {
     [SerializeField]
     public string[] InteractableTagsList;
     [TextArea(3,10)]

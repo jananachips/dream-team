@@ -4,11 +4,11 @@ using UnityEngine;
 
 
 //assign properties to object attached base on their tags, using the overall list we already had
-public class InteractableProperties : MonoBehaviour {
+public class AssignProperties_Inter: MonoBehaviour {
     private string message = "This item doesn't have any description";
 
 	void Start () {
-        InterOverallInfo InteractionOverallInfo = FindObjectOfType<InterOverallInfo>();
+        AllObjectInfoList_Inter InteractionOverallInfo = FindObjectOfType<AllObjectInfoList_Inter>();
         string[] interTagsList = InteractionOverallInfo.WhatCanBeInteracted();
         string[] messageList = InteractionOverallInfo.WhatIsTheMessage();
         for(int i = 0; i < interTagsList.Length; i++)
@@ -28,6 +28,7 @@ public class InteractableProperties : MonoBehaviour {
 
     public string GetName()
     {
+        Debug.Log("get name");
         return name;
     }
 
