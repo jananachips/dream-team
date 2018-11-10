@@ -13,7 +13,11 @@ public class InteractionManager : MonoBehaviour {
     public float xOffSet = 0;
     public float yOffSet = 1;
     public float zOffset = 0;
+    public float waitTime = 3f;
 
+    //stop messages from overlapping each other
+    private bool showingInfo = false;
+    private GameObject tempWindow;
 	void Start () {
 		
 	}
@@ -22,28 +26,22 @@ public class InteractionManager : MonoBehaviour {
 		
 	}
 
-    public void showMessage(string name, string message, Transform OtherTransform)
+    public void showMessage(string name, string message, Transform desiredTransform)
     {
-        //popOutWindow.transform.position = OtherTransform.position + new Vector3(xOffSet, yOffSet, zOffset);
-        //popOutWindow.transform.SetParent(OtherTransform+ new Vector3(xOffSet, yOffSet, zOffset));
-        //not sure how to apply the offset yet
-        
-        popOutWindow.transform.SetParent(OtherTransform);
+
         popText.text = ("Name: " + name + "\n" + message);
-        popOutWindow.SetActive(true);
+        if (showingInfo)
+        {
+            Destroy (tempWindow);
+        }
+        tempWindow = Instantiate(popOutWindow, desiredTransform);
+        showingInfo = true;
+
+        Destroy(tempWindow, waitTime);
 
         Debug.Log("I got it" + name + " " + message);
-        StartCoroutine(disablePopWindow());
+
     }
-
-        
-    IEnumerator disablePopWindow()
-    {
-        yield return new WaitForSeconds(3);
-
-        popOutWindow.SetActive(false);
-    }
-
 
 
 

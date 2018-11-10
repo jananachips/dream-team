@@ -2,27 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//attached to anything that player can interact with
-//contain things like object's properties
-//for ex: name, weight, damage, etc.
 
+//assign properties to object attached base on their tags, using the overall list we already had
 public class InteractableProperties : MonoBehaviour {
-    private string objectName = "The first box";
-    private string message = "Press E to open";
-	// Use this for initialization
+    private string message = "This item doesn't have any description";
 
 	void Start () {
+        InterOverallInfo InteractionOverallInfo = FindObjectOfType<InterOverallInfo>();
+        string[] interTagsList = InteractionOverallInfo.WhatCanBeInteracted();
+        string[] messageList = InteractionOverallInfo.WhatIsTheMessage();
+        for(int i = 0; i < interTagsList.Length; i++)
+        {
+            if(tag == interTagsList[i])
+            {
+                message = messageList[i];
+                //more properties
+                //
+                //etc
+            }
+        }
+
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public string GetName()
     {
-        return objectName;
+        return name;
     }
 
     public string GetMessage()
