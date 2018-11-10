@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 
     public GameObject pauseScreen;
     public GameObject settingsWindow;
+    public int MainMenuIndex = 0;
 
     private bool gamePaused = false;
 
@@ -70,9 +71,14 @@ public class GameManager : MonoBehaviour {
         return gamePaused;
     }
 
-    private void OnApplicationPause(bool pause)
+    public void EndGame()
     {
-        //maybe we want do something here
+        Application.Quit();
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(MainMenuIndex);        
     }
 
 

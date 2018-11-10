@@ -10,9 +10,6 @@ public class InteractionManager : MonoBehaviour {
     public GameObject popOutWindow;
     public Text popText;
 
-    public float xOffSet = 0;
-    public float yOffSet = 1;
-    public float zOffset = 0;
     public float waitTime = 3f;
 
     //stop messages from overlapping each other
