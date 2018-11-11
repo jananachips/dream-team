@@ -5,12 +5,17 @@ using UnityEngine;
 
 //assign properties to object attached base on their tags, using the InteractionOverallInfo list we already had
 public class AssignProperties_Inter: MonoBehaviour {
+
+    private AllObjectInfoList_File allObjInfoList_File;
     private string message = "This item doesn't have any description";
 
 	void Start () {
-        AllObjectInfoList_Inter InteractionOverallInfo = FindObjectOfType<AllObjectInfoList_Inter>();
-        string[] interTagsList = InteractionOverallInfo.WhatCanBeInteracted();
-        string[] messageList = InteractionOverallInfo.WhatIsTheMessage();
+
+        allObjInfoList_File = FindObjectOfType<AllObjectInfoList_File>();
+        string[] interTagsList = allObjInfoList_File.WhatCanBeInteracted();
+        string[] messageList = allObjInfoList_File.WhatIsTheMessage();
+
+        //check what properties should current object has base on its tag
         for(int i = 0; i < interTagsList.Length; i++)
         {
             if(tag == interTagsList[i])
@@ -25,6 +30,11 @@ public class AssignProperties_Inter: MonoBehaviour {
 		
 	}
 	
+
+    public string GetTag()
+    {
+        return tag;
+    }
 
     public string GetName()
     {

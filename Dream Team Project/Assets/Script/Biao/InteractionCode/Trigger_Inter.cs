@@ -6,9 +6,14 @@ using UnityEngine;
 //word will pop out on the top, showing the name and the actions we can do with it
 
 public class Trigger_Inter : MonoBehaviour {
-    public Actions_Inter ActionsOnScreen;
     public float ListenGapTime = 0.01f;
+
+    public ActionsToGame_Inter ActionsOnScreen;
     public KeyListener_Inter KeyListener;
+    public AllObjectInfoList_File allObjectInfo_list;
+    public AllDialoguesList_File allDialogues_file;
+
+
 
     private bool interactable = false;
     private string[] InteractableTagsList;
@@ -17,6 +22,8 @@ public class Trigger_Inter : MonoBehaviour {
 	void Start () {
         //some initialization can not put on start, especially when it's from another code, I guess bc it could be this method being 
         //called when the other code it depend on hasn't finished its initialization
+        InteractableTagsList = allObjectInfo_list.WhatCanBeInteracted();
+        nameAndDialogues = allDialogues_file.GetNameAndDialogues();
 	}
 
     private void Awake()
@@ -30,7 +37,7 @@ public class Trigger_Inter : MonoBehaviour {
         if(collision.tag == "NPC")
         {
             //get the list
-            nameAndDialogues = ActionsOnScreen.GetNameAndDialogues();
+            //nameAndDialogues = ActionsOnScreen.GetNameAndDialogues();
 
             string otherName = collision.name;
             for(int i = 0; i < nameAndDialogues.Length; i++)
@@ -50,7 +57,6 @@ public class Trigger_Inter : MonoBehaviour {
         else
         {
             //get the list
-            InteractableTagsList = ActionsOnScreen.GetInteractableList();
 
             for (int i = 0; i < InteractableTagsList.Length; i++)
             {
@@ -72,23 +78,23 @@ public class Trigger_Inter : MonoBehaviour {
 
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //stop wait for input when player leave the area 
-        KeyListener.ContinueListeningKeys = false;
-    }
 
     IEnumerator  NpcConversation(int i, int conversationLength, float gapTime)
     {
         bool UserPressedKey = false;
         bool StopConversation = false;
+
+
         for(int j = 0;  j < conversationLength && KeyListener.ContinueListeningKeys;)
         {
             UserPressedKey = KeyListener.GetIsKeyPressed();
-            StopConversation = KeyListener.StopTalkNow();
+            //keep checking if the user pressed end key (n for this case)
+            StopConversation = KeyListener.StopActionNow();
+            
+
+            //for loop will not end if no j++ or Stopconversation is not true
             if (UserPressedKey && !StopConversation)
             {
-                //Debug.Log("continue: userpressed " + j);
                 ActionsOnScreen.NpcConversation("", nameAndDialogues[i].dialogue[j], transform, messageLastTime:3f);
                 j++;
 
@@ -99,13 +105,30 @@ public class Trigger_Inter : MonoBehaviour {
                 ActionsOnScreen.NpcConversation("", " :<",transform, messageLastTime:1.5f );
             }
             
+            //finish one loop and rest for gapTime seconds
             yield return new WaitForSeconds(gapTime);
         }
 
-        //when conversation ends, the stop will stop responding..not that it's not working
 
         KeyListener.ContinueListeningKeys = false;
     }
  
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //stop wait for input when player leave the area 
+
+        for (int i = 0; i < InteractableTagsList.Length; i++)
+        {
+            if(collision.tag == InteractableTagsList[i])
+            {
+                KeyListener.ContinueListeningKeys = false;
+                ActionsOnScreen.ShowMessage("", "   :<\n  :<",transform, messageTime:1.5f );
+            }
+        }
+
+    }
+
+
 
 }

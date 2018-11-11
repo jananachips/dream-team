@@ -4,7 +4,7 @@ using UnityEngine;
  
 //DO NOT CHANGE ANYTHING HERE
 //OTHERWISE YOU MAY NEED TO RETYPE ALL THE DIALOGUES!!!
-public class AllDialogues : MonoBehaviour {
+public class AllDialoguesList_File : MonoBehaviour {
     [SerializeField]
     public DialoguesFormat[] npcAndDialogues;
 
