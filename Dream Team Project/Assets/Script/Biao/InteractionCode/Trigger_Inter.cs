@@ -6,39 +6,52 @@ using UnityEngine;
 //word will pop out on the top, showing the name and the actions we can do with it
 
 public class Trigger_Inter : MonoBehaviour {
-    public Actions_Inter InteractManager;
-    public float talkGapTime = 2.5f;
+    public Actions_Inter ActionsOnScreen;
+    public float ListenGapTime = 0.01f;
+    public KeyListener_Inter KeyListener;
 
     private bool interactable = false;
     private string[] InteractableTagsList;
     private DialoguesFormat[] nameAndDialogues;
+
 	void Start () {
+        //some initialization can not put on start, especially when it's from another code, I guess bc it could be this method being 
+        //called when the other code it depend on hasn't finished its initialization
 	}
+
+    private void Awake()
+    {
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        InteractManager.GetInteractableList();
-        InteractableTagsList = InteractManager.GetInteractableList();
-        nameAndDialogues = InteractManager.GetNameAndDialogues();
+
         string message, name;
         if(collision.tag == "NPC")
         {
+            //get the list
+            nameAndDialogues = ActionsOnScreen.GetNameAndDialogues();
+
             string otherName = collision.name;
             for(int i = 0; i < nameAndDialogues.Length; i++)
             {
                 if(nameAndDialogues[i].NpcName == otherName)
                 {
-                    //for(int j = 0; j < nameAndDialogues[i].dialogue.Length; j++)
+                    ActionsOnScreen.ShowNpcInfo(nameAndDialogues[i].NpcName, transform);
+                    KeyListener.ContinueListeningKeys = true;
+
                     int conversationLength = nameAndDialogues[i].dialogue.Length;
-                    StartCoroutine(NpcConversation(i, conversationLength, talkGapTime));
-                    //InteractManager.NpcConversation(nameAndDialogues[i].NpcName, nameAndDialogues[i].dialogue[j], transform);
-                    Debug.Log("inside npc");
+                    //Debug.Log("before the cor");
+                    StartCoroutine(NpcConversation(i, conversationLength, ListenGapTime));
                 }
             }
 
         }
         else
         {
+            //get the list
+            InteractableTagsList = ActionsOnScreen.GetInteractableList();
+
             for (int i = 0; i < InteractableTagsList.Length; i++)
             {
                 if(InteractableTagsList[i] == collision.tag)
@@ -51,7 +64,7 @@ public class Trigger_Inter : MonoBehaviour {
             { 
                 message = collision.GetComponent<AssignProperties_Inter>().GetMessage();
                 name = collision.GetComponent<AssignProperties_Inter>().GetName();
-                InteractManager.ShowMessage(name, message, transform);
+                ActionsOnScreen.ShowMessage(name, message, transform);
                 interactable = false;
             }
 
@@ -59,14 +72,40 @@ public class Trigger_Inter : MonoBehaviour {
 
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //stop wait for input when player leave the area 
+        KeyListener.ContinueListeningKeys = false;
+    }
+
     IEnumerator  NpcConversation(int i, int conversationLength, float gapTime)
     {
-        for(int j = 0; j < conversationLength; j++)
+        bool UserPressedKey = false;
+        bool StopConversation = false;
+        for(int j = 0;  j < conversationLength && KeyListener.ContinueListeningKeys;)
         {
-            Debug.Log("cor");
-            InteractManager.NpcConversation(nameAndDialogues[i].NpcName, nameAndDialogues[i].dialogue[j], transform);
+            UserPressedKey = KeyListener.GetIsKeyPressed();
+            StopConversation = KeyListener.StopTalkNow();
+            if (UserPressedKey && !StopConversation)
+            {
+                //Debug.Log("continue: userpressed " + j);
+                ActionsOnScreen.NpcConversation("", nameAndDialogues[i].dialogue[j], transform, messageLastTime:3f);
+                j++;
+
+            }
+            else if(StopConversation)
+            {
+                Debug.Log("stop it");
+                ActionsOnScreen.NpcConversation("", " :<",transform, messageLastTime:1.5f );
+            }
+            
             yield return new WaitForSeconds(gapTime);
         }
+
+        //when conversation ends, the stop will stop responding..not that it's not working
+
+        KeyListener.ContinueListeningKeys = false;
     }
+ 
 
 }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundSettings : MonoBehaviour {
-    public AudioList audioCollector;
+    public AudioControllerList audioControllers;
     public float StartingVolume = 0.5f;
     public float CurrentVolume = 0.5f;
 
-    private AudioSource[] audioList ; 
+    private AudioSource[] audioControllerList ; 
 
 	void Start () {
-        audioList = audioCollector.GetAllAudios();
+        audioControllerList = audioControllers.GetAllAudioControllers();
         ChangeAllVolumeTo(StartingVolume);
         CurrentVolume = StartingVolume;
 	}
@@ -21,9 +21,9 @@ public class SoundSettings : MonoBehaviour {
 
     public void MuteAll()
     {
-        for(int i = 0; i < audioList.Length; i++)
+        for(int i = 0; i < audioControllerList.Length; i++)
         {
-            audioList[i].volume = 0;
+            audioControllerList[i].volume = 0;
         }
         CurrentVolume = 0;
     }
@@ -31,9 +31,9 @@ public class SoundSettings : MonoBehaviour {
     //noting is wrong, don't know why report error, but still works
     public void ChangeAllVolumeTo(float volume)
     {
-        for(int i = 0; i < audioList.Length; i++)
+        for(int i = 0; i < audioControllerList.Length; i++)
         {
-            audioList[i].volume = volume;
+            audioControllerList[i].volume = volume;
         }
         CurrentVolume = volume;
     }

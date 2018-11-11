@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour {
     public int MainMenuIndex = 0;
 
     private bool gamePaused = false;
+    //I will do this later
+    //private bool OtherWindowsOpened = FindObjectOfType<OtherWindowsActive>().GetStatuesOtherWindow();
 
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) ) {
             if (settingsWindow.activeSelf)
             {
                 //if settingswindow is active, close it first

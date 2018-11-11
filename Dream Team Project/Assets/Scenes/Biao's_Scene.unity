@@ -460,8 +460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9495fef5f7d001948958fa1aba5475eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractManager: {fileID: 1037169984}
-  talkGapTime: 2.5
+  ActionsOnScreen: {fileID: 1037169984}
+  ListenGapTime: 0.01
+  KeyListener: {fileID: 1149315182}
 --- !u!1 &325406894
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,11 +692,12 @@ MonoBehaviour:
     dialogue:
     - hello stranger
     - I'm NPC_ONE
-    - 'BYE
-
-      HAHAHHAH
-
-      = =......'
+    - Welcome to Sandy's Dreamland
+    - I am the BGM manager
+    - Press "E" to change to a random BGM, or "N" to stop the conversation
+    - Good Choice
+    - Talk to me if you want a new one
+    - BYE
   - NpcName: NPC_TWO
     dialogue:
     - HI
@@ -1631,7 +1633,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 935887165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 635.2493, y: -462.00275, z: -8.082346}
+  m_LocalPosition: {x: 616.45, y: -460.73, z: -8.082346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1871827502}
@@ -1768,9 +1770,12 @@ MonoBehaviour:
   popOutWindow: {fileID: 1342172492897584, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
     type: 2}
   popText: {fileID: 114671306948740322, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67, type: 2}
+  continueRemainder: {fileID: 114847177871558794, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+    type: 2}
   interactObjects: {fileID: 935887167}
   allDialogues: {fileID: 376107603}
-  waitTime: 3
+  KeyListener: {fileID: 1149315182}
+  messageLastTime: 3
 --- !u!1001 &1081964527
 Prefab:
   m_ObjectHideFlags: 0
@@ -2207,7 +2212,7 @@ GameObject:
   - component: {fileID: 1149315181}
   - component: {fileID: 1149315182}
   m_Layer: 0
-  m_Name: Inter_KeyListener
+  m_Name: KeyListener_Inter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2237,6 +2242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859c65beff038a247a9e0dea3bf43345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ContinueListeningKeys: 0
+  KeyToListen: 101
 --- !u!1 &1189629002
 GameObject:
   m_ObjectHideFlags: 0
@@ -3655,7 +3662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394e6396f9ee46f46bb6b10ed3f2a621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioCollector: {fileID: 2010223319}
+  audioControllers: {fileID: 2010223319}
   StartingVolume: 0.5
   CurrentVolume: 0.5
 --- !u!114 &2010223319
@@ -3669,7 +3676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd16c2b33600464eb394fe63df5d373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audiosList:
+  audiosControllerList:
   - {fileID: 887803243}
 --- !u!1 &2134659384
 GameObject:

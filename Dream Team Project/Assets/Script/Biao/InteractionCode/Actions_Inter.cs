@@ -9,25 +9,25 @@ using UnityEngine.UI;
 public class Actions_Inter: MonoBehaviour {
     public GameObject popOutWindow;
     public Text popText;
+    public Text continueRemainder;
 
     public AllObjectInfoList_Inter interactObjects;
     public AllDialogues allDialogues;
-    public float waitTime = 3f;
+    public KeyListener_Inter KeyListener;
+    public float messageLastTime = 3f;
 
     //stop messages from overlapping each other
     private bool showingInfo = false;
     private GameObject tempWindow;
     private string[] InteractableList;
     private DialoguesFormat[] nameAndDialogues;
-    private string testVar = "hi";
+    private bool IsNpc = false;
+    //private bool talking = false;
 	void Start () {
         InteractableList = interactObjects.WhatCanBeInteracted();
         nameAndDialogues = allDialogues.GetNameAndDialogues();
         string[] temp = GetInteractableList();
 	}
-    private void Awake()
-    {
-    }
 
     public string[] GetInteractableList()
     {
@@ -37,27 +37,57 @@ public class Actions_Inter: MonoBehaviour {
 	void Update () {
 		
 	}
-    public void ShowMessage(string name, string message, Transform desiredTransform)
+    public void ShowMessage(string name, string message, Transform desiredTransform, float messageTime = -100 ,bool IsNpc_temp = false, bool talking = false)
     {
-        Debug.Log("in the show message");
-        popText.text = ("Name: " + name + "\n" + message);
+        //main message
+        //popText.text = ("Name: " + name + "\n" + message);
+        if(name.Length > 0)
+        {
+            popText.text = "Name: " + name + "\n" + message;
+        }else {
+            popText.text = message;
+        }
+
+        //the "continue" message
+        if (talking)
+        {
+            continueRemainder.text = "Press E To Continue";
+        }else if(!talking && IsNpc_temp)
+        {
+            continueRemainder.text = "Press E To Start Conversation";
+        }
+        else
+        {
+            continueRemainder.text = "";
+        }
+
         if (showingInfo)
         {
             Destroy (tempWindow);
+            showingInfo = false;
         }
+
+        if(messageTime <= 0)
+        {
+            messageTime = messageLastTime;
+        }
+
         tempWindow = Instantiate(popOutWindow, desiredTransform);
         showingInfo = true;
 
-        Destroy(tempWindow, waitTime);
+        Destroy(tempWindow, messageTime);
 
-        Debug.Log("I got it" + name + " " + message);
 
     }
-    
-    public void NpcConversation(string name, string message, Transform desiredTransform)
+
+    public void ShowNpcInfo(string name,  Transform desiredTransform, string message = "")
     {
-        Debug.Log("conversation in manager");
-        ShowMessage(name, message, desiredTransform);
+        ShowMessage(name, message, desiredTransform, messageTime:3,IsNpc_temp:true);
+    }
+
+    public void NpcConversation(string name, string message, Transform desiredTransform, float messageLastTime = 3f)
+    {
+        ShowMessage("", message, desiredTransform, messageTime:messageLastTime ,IsNpc_temp:true, talking:true);
     }
 
 

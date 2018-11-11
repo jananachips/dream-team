@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inter_KeyListener : MonoBehaviour {
+public class AdioClip_List : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

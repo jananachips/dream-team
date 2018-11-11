@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//assign properties to object attached base on their tags, using the overall list we already had
+//assign properties to object attached base on their tags, using the InteractionOverallInfo list we already had
 public class AssignProperties_Inter: MonoBehaviour {
     private string message = "This item doesn't have any description";
 
@@ -28,7 +28,6 @@ public class AssignProperties_Inter: MonoBehaviour {
 
     public string GetName()
     {
-        Debug.Log("get name");
         return name;
     }
 
