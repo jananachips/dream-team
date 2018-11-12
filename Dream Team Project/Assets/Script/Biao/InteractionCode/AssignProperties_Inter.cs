@@ -13,13 +13,14 @@ public class AssignProperties_Inter: MonoBehaviour {
     private AllObjectPropertiesList_File allObjectPropertiesList_File;
     private AllDialoguesList_File allDialoguesList_File;
 
-    private string[] myProperties;
-    private string[] npcDialogueList;
-    private bool isInteractable = false;
-    private bool isNpc = false;
-    private string myBasicMessage = "no basic message given";
+    public string[] myProperties;
+    public string[] npcDialogueList;
+    public bool isInteractable = false;
+    public bool isNpc = false;
+    public string myBasicMessage = "no basic message given";
 
 	void Start () {
+
 
         allObjectInfoList_File = FindObjectOfType<AllObjectInfoList_File>();
         allObjectPropertiesList_File = FindObjectOfType<AllObjectPropertiesList_File>();
@@ -27,7 +28,19 @@ public class AssignProperties_Inter: MonoBehaviour {
 
         isInteractable = allObjectInfoList_File.GetIsInteractable(tag);
         myBasicMessage = allObjectInfoList_File.GetBasicMessageOf(tag);
-        myProperties = allObjectPropertiesList_File.GetPropertiesOfTag(tag);
+
+        if (isInteractable)
+        {
+            myProperties = allObjectPropertiesList_File.GetPropertiesOfTag(tag);
+            if(myProperties.Length == 0)
+            {
+                myProperties = new string[1] { "Empty properties" };
+            }
+        }
+        else
+        {
+            myProperties = new string[1] { "not interactable, not properties given" };
+        }
 
         isNpc = allDialoguesList_File.GetIsNpc(name);
         if (isNpc)
@@ -47,6 +60,8 @@ public class AssignProperties_Inter: MonoBehaviour {
 	}
 	
 
+
+    //may remove this later, after I finish object trigger
     public string GetTag()
     {
         return tag;
@@ -62,7 +77,7 @@ public class AssignProperties_Inter: MonoBehaviour {
         return myBasicMessage;
     }
 
-    public string[] GetObjectProperties()
+    public string[] GetOtherObjectProperties()
     {
         return myProperties;
     }

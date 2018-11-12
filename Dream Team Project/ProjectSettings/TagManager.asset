@@ -9,6 +9,8 @@ TagManager:
   - Lever
   - NPC
   - HeavyBox
+  - Container
+  - Teleporter
   layers:
   - Default
   - TransparentFX

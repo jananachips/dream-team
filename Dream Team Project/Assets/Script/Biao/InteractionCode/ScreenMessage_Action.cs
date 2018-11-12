@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//handle that actions that will affect the game when player find the interactable object and want to do something with it
-//do things like: open the box, etc
+public class ScreenMessage_Action : MonoBehaviour {
 
-public class ActionsToGame_Inter: MonoBehaviour {
     public GameObject popOutWindow;
     public Text popText;
     public Text continueRemainder;
@@ -23,6 +21,8 @@ public class ActionsToGame_Inter: MonoBehaviour {
     private float Default_TypingGap = 0.03f;
     private bool stillTyping = false;
 
+    private IEnumerator TypingEffectCoroutine;
+
     public bool GetIsStillTyping()
     {
         return stillTyping;
@@ -38,12 +38,12 @@ public class ActionsToGame_Inter: MonoBehaviour {
         TypingGap = Default_TypingGap;
     }
 
-    public void NpcConversation(string name, string message, Transform desiredTransform, float messageLastTime = 3f)
+    public void NpcConversation(string name, string message,  float messageLastTime = 3f)
     {
-        ShowMessage("", message, desiredTransform, messageTime:messageLastTime ,isNpc:true, talking:true);
+        ShowMessage("", message,  messageTime:messageLastTime ,isNpc:true, talking:true);
     }
 
-    public void ShowMessage(string name, string message, Transform desiredTransform, float messageTime = -100 ,bool isNpc = false, bool talking = false)
+    public void ShowMessage(string name, string message,  float messageTime = -100 ,bool isNpc = false, bool talking = false)
     {
         //main message
         string resultPopText;
@@ -55,15 +55,18 @@ public class ActionsToGame_Inter: MonoBehaviour {
             resultPopText = message; 
         }
 
-
+        if (GetIsStillTyping())
+        {
+            //stop previous, since isTyping return true, there must be one there
+            StopCoroutine(TypingEffectCoroutine);
+        }
         //the typing effect
-        //StartCoroutine(TypingEffect(resultPopText, messageTime, desiredTransform, talking:talking, isNpc:isNpc));
-        IEnumerator TypingEffectCoroutine = TypingEffect(resultPopText, messageTime, desiredTransform, talking:talking, isNpc:isNpc);
+        TypingEffectCoroutine = TypingEffect(resultPopText, messageTime, talking:talking, isNpc:isNpc);
         StartCoroutine(TypingEffectCoroutine);
     }
 
     //typing effect
-    IEnumerator TypingEffect(string aString, float messageTime, Transform wantedTransform,  bool talking = false, bool isNpc = false)
+    IEnumerator TypingEffect(string aString, float messageTime,  bool talking = false, bool isNpc = false)
     {
         stillTyping = true;
         string resultString = "";
@@ -112,7 +115,6 @@ public class ActionsToGame_Inter: MonoBehaviour {
                 messageTime = messageLastTime;
             }
 
-            //tempWindow = Instantiate(popOutWindow, wantedTransform);
             tempWindow = Instantiate(popOutWindow);
             showingInfo = true;
 
@@ -132,8 +134,6 @@ public class ActionsToGame_Inter: MonoBehaviour {
         ResetTypingGap();
         stillTyping = false;
     }
-
-
 
 
 }
