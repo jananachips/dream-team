@@ -13,7 +13,6 @@ public class AssignProperties_Inter: MonoBehaviour {
     private AllObjectPropertiesList_File allObjectPropertiesList_File;
     private AllDialoguesList_File allDialoguesList_File;
 
-    //private string message = "This item doesn't have any description";
     private string[] myProperties;
     private string[] npcDialogueList;
     private bool isInteractable = false;
@@ -34,10 +33,13 @@ public class AssignProperties_Inter: MonoBehaviour {
         if (isNpc)
         {
             npcDialogueList = allDialoguesList_File.GetDialogueListOf(name);
+            if(npcDialogueList.Length == 0)
+            {
+                npcDialogueList = new string[1] { "empty dialogue" };
+            }
         }
         else
         {
-            //could be wrong
             npcDialogueList = new string[1]{"not npc, no dialogue"};
         }
 
@@ -70,8 +72,13 @@ public class AssignProperties_Inter: MonoBehaviour {
         return isInteractable;
     }
 
-    public string[] GetNpcDialogueListOf(string npcName)
+    public string[] GetNpcDialogueList()
     {
         return npcDialogueList;
+    }
+
+    public bool GetIsNpc()
+    {
+        return isNpc;
     }
 }

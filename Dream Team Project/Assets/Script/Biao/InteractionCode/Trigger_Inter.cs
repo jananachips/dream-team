@@ -10,29 +10,25 @@ public class Trigger_Inter : MonoBehaviour {
 
     public ActionsToGame_Inter ActionsOnScreen;
     public KeyListener_Inter KeyListener;
-    public AllObjectInfoList_File allObjectInfoList_File;
-    //public AllObjectPropertiesList_File allobjectPropertiesList_File;
-    public AllDialoguesList_File allDialogues_file;
 
 
-
-    //private string[] InteractableTagsList;
-    private DialoguesFormat[] nameAndDialogues;
+    //FIXME will i use this???
     private string[] otherColliderProperties;
 
 
     private bool interactable = false;
+    private bool isNpc = false;
     private string otherColliderTag;
     private string otherColliderName;
     private string otherColliderBasicMessage = "trigger failed to get message";
+    private string[] otherColliderDialogueList;
 
 	void Start () {
-        //InteractableTagsList = allObjectInfoList_File.WhatCanBeInteracted();
-        nameAndDialogues = allDialogues_file.GetNameAndDialogues();
 	}
 
-    private void Awake()
+    void ShowObjectBasicInfo()
     {
+        ActionsOnScreen.ShowMessage(otherColliderName, otherColliderBasicMessage, transform, isNpc:isNpc);
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
@@ -40,47 +36,37 @@ public class Trigger_Inter : MonoBehaviour {
         AssignProperties_Inter otherColliderScript = otherCollider.GetComponent<AssignProperties_Inter>();
         
         interactable = otherColliderScript.GetIsInteractable();
+        isNpc = otherColliderScript.GetIsNpc();
         otherColliderBasicMessage = otherColliderScript.GetBasicMessage();
         otherColliderTag = otherCollider.tag;
         otherColliderName = otherCollider.name;
 
 
-        if(otherCollider.tag == "NPC")
+        if (interactable)
         {
 
-            string otherName = otherCollider.name;
-            for(int i = 0; i < nameAndDialogues.Length; i++)
-            {
-                if(nameAndDialogues[i].NpcName == otherName)
-                {
-                    ActionsOnScreen.ShowNpcInfo(nameAndDialogues[i].NpcName, transform);
-                    KeyListener.ContinueListeningKeys = true;
 
-                    int conversationLength = nameAndDialogues[i].dialogue.Length;
-                    //Debug.Log("before the cor");
-                    StartCoroutine(NpcConversation(i, conversationLength, ListenGapTime));
-                }
+            ShowObjectBasicInfo();
+            if (isNpc)
+            {
+                otherColliderDialogueList = otherColliderScript.GetNpcDialogueList();
+
+                KeyListener.ContinueListeningKeys = true;
+                int conversationLength = otherColliderDialogueList.Length;
+                StartCoroutine(NpcConversation(conversationLength, ListenGapTime));
             }
+            
 
         }
-        else
-        {
-            if(interactable)
-            { 
-                ActionsOnScreen.ShowMessage(otherColliderName, otherColliderBasicMessage, transform);
-                interactable = false;
-            }
-
-        }        
 
     }
 
 
-    IEnumerator  NpcConversation(int i, int conversationLength, float gapTime)
+    IEnumerator  NpcConversation(int conversationLength, float gapTime)
     {
         bool UserPressedKey = false;
         bool StopConversation = false;
-
+        bool isStillTyping = false;
 
         for(int j = 0;  j < conversationLength && KeyListener.ContinueListeningKeys;)
         {
@@ -90,10 +76,22 @@ public class Trigger_Inter : MonoBehaviour {
             
 
             //for loop will not end if no j++ or Stopconversation is not true
-            if (UserPressedKey && !StopConversation)
+            if (UserPressedKey && !StopConversation )
             {
-                ActionsOnScreen.NpcConversation("", nameAndDialogues[i].dialogue[j], transform, messageLastTime:3f);
-                j++;
+                isStillTyping = ActionsOnScreen.GetIsStillTyping();
+                if (isStillTyping)
+                {
+                    //if previous sentence is still typing, speed up
+                    ActionsOnScreen.ChangeTypingGapTo(0f);
+                }
+                else
+                {
+                    //else, type next sentence
+                    ActionsOnScreen.ResetTypingGap();
+                    ActionsOnScreen.NpcConversation("", otherColliderDialogueList[j], transform, messageLastTime:3f);
+                    j++;
+                }
+
 
             }
             else if(StopConversation)
@@ -102,7 +100,6 @@ public class Trigger_Inter : MonoBehaviour {
                 ActionsOnScreen.NpcConversation("", " :<",transform, messageLastTime:1.5f );
             }
             
-            //finish one loop and rest for gapTime seconds
             yield return new WaitForSeconds(gapTime);
         }
 
@@ -113,17 +110,11 @@ public class Trigger_Inter : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //stop wait for input when player leave the area 
-        /*
-        for (int i = 0; i < InteractableTagsList.Length; i++)
-        {
-            if(collision.tag == InteractableTagsList[i])
+            if(interactable)
             {
                 KeyListener.ContinueListeningKeys = false;
                 ActionsOnScreen.ShowMessage("", "   :<\n  :<",transform, messageTime:1.5f );
             }
-        }
-        */
 
     }
 

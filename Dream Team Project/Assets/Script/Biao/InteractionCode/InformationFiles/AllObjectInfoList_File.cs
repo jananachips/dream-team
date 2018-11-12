@@ -42,9 +42,7 @@ public class AllObjectInfoList_File : MonoBehaviour {
             }
         }
         
-        //Debug.Log("Tag " + tagName + " not found in interactable list");
         return false;
-
 
     }
 }

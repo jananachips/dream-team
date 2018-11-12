@@ -314,7 +314,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.043637276, y: 0.19074821}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -325,7 +325,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.09, y: 8.4}
+  m_Size: {x: 11.479071, y: 8.018503}
   m_EdgeRadius: 0
 --- !u!1 &269051886
 GameObject:
@@ -492,7 +492,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.415621, y: -0.24223661}
+  m_Offset: {x: 5.37198, y: -0.24223661}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -503,7 +503,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.5732975, y: 6.927311}
+  m_Size: {x: 15.453397, y: 6.927311}
   m_EdgeRadius: 0
 --- !u!114 &313702155
 MonoBehaviour:
@@ -519,8 +519,6 @@ MonoBehaviour:
   ListenGapTime: 0.01
   ActionsOnScreen: {fileID: 1037169984}
   KeyListener: {fileID: 1149315182}
-  allObjectInfoList_File: {fileID: 935887167}
-  allDialogues_file: {fileID: 376107603}
 --- !u!1 &325406894
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,20 +879,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcAndDialogues:
   - NpcName: NPC_ONE
-    dialogue:
-    - hello stranger
-    - I'm NPC_ONE
-    - Welcome to Sandy's Dreamland
-    - I am the BGM manager
-    - Press "E" to change to a random BGM, or "N" to stop the conversation
-    - Good Choice
-    - Talk to me if you want a new one
-    - BYE
+    NpcDialogueList:
+    - 'What''s up, this is the npc_one
+
+      Simple rule here.
+
+      Press "E" to speed up and go to next dialog,  Press "N" to stop the whole conversation.'
+    - 'super long sentences test lolololololololoololol hahahahhahahahahahahah
+
+      dsffffffffffsdf sdfdfsd fsdfsd fsdf '
+    - Test no2 64612156156 1515 11515151151 6 1561 6515165161651616156156165165156156515611651561565656
+      15156156156156 65156165156156 156551561561561561561565  565156165156 65156156156561561561561561
+      56156156
+    - test ended
   - NpcName: NPC_TWO
-    dialogue:
-    - HI
-    - I'm NPC_TWO
-    - I DON'T WANT SEE YOU
+    NpcDialogueList:
+    - I'm npc_two, nothing fun
 --- !u!1 &385287447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,6 +3078,111 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224520700531697700, guid: d996111d800bffa4398a6cdc66564935,
     type: 2}
   m_PrefabInternal: {fileID: 1081964527}
+--- !u!1001 &1589166509
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224455651185962256, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 177c7fe3596ea1a4a8a61ef7c3b87a67, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1596852351
 GameObject:
   m_ObjectHideFlags: 0

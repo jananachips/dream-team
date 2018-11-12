@@ -9,14 +9,6 @@ public class AllDialoguesList_File : MonoBehaviour {
     [SerializeField]
     public DialoguesFormat[] npcAndDialogues;
 
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public DialoguesFormat[] GetNameAndDialogues()
     {
@@ -25,6 +17,7 @@ public class AllDialoguesList_File : MonoBehaviour {
 
     public string[] GetDialogueListOf(string npcName)
     {
+        string[] notFoundMessage = new string[1] {"Npc " + npcName + " not found, so no dialogue"};
         for(int i = 0; i < npcAndDialogues.Length; i++)
         {
             if(npcName == npcAndDialogues[i].NpcName)
@@ -32,8 +25,8 @@ public class AllDialoguesList_File : MonoBehaviour {
                 return npcAndDialogues[i].NpcDialogueList;
             }
         }
-        Debug.Log("Npc " + npcName + " is not found in the AllDialoguesList_File, so not dialogues");
-        return null;
+        //Debug.Log("Npc " + npcName + " is not found in the AllDialoguesList_File, so not dialogues");
+        return notFoundMessage;
     }
 
     public bool GetIsNpc(string npcName)
