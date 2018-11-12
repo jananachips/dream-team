@@ -10,7 +10,7 @@ public class ActionsToGame_Inter: MonoBehaviour {
     public GameObject popOutWindow;
     public Text popText;
     public Text continueRemainder;
-    public AudioSource typingSoundController;
+    //public AudioSource typingSoundController;
     public KeyListener_Inter KeyListener;
     public float messageLastTime = 3f;
 
@@ -28,6 +28,15 @@ public class ActionsToGame_Inter: MonoBehaviour {
 		
 	}
 
+    public void ShowNpcInfo(string name,  Transform desiredTransform, string message = "")
+    {
+        ShowMessage(name, message, desiredTransform, messageTime:3,IsNpc:true);
+    }
+
+    public void NpcConversation(string name, string message, Transform desiredTransform, float messageLastTime = 3f)
+    {
+        ShowMessage("", message, desiredTransform, messageTime:messageLastTime ,IsNpc:true, talking:true);
+    }
 
     public void ShowMessage(string name, string message, Transform desiredTransform, float messageTime = -100 ,bool IsNpc = false, bool talking = false)
     {
@@ -96,15 +105,6 @@ public class ActionsToGame_Inter: MonoBehaviour {
     }
 
 
-    public void ShowNpcInfo(string name,  Transform desiredTransform, string message = "")
-    {
-        ShowMessage(name, message, desiredTransform, messageTime:3,IsNpc:true);
-    }
-
-    public void NpcConversation(string name, string message, Transform desiredTransform, float messageLastTime = 3f)
-    {
-        ShowMessage("", message, desiredTransform, messageTime:messageLastTime ,IsNpc:true, talking:true);
-    }
 
 
 }

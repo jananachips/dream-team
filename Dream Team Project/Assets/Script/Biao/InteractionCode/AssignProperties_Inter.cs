@@ -2,32 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//will be attached onto any interactable objects
+//search for the basic information of current attached objective from AllObjectInfoList_File
+//with basic information, assign it the properties from the properties list: AllObjectPropertiesList_File
 
-//assign properties to object attached base on their tags, using the InteractionOverallInfo list we already had
+
 public class AssignProperties_Inter: MonoBehaviour {
 
-    private AllObjectInfoList_File allObjInfoList_File;
-    private string message = "This item doesn't have any description";
+    private AllObjectInfoList_File allObjectInfoList_File;
+    private AllObjectPropertiesList_File allObjectPropertiesList_File;
+    private AllDialoguesList_File allDialoguesList_File;
+
+    //private string message = "This item doesn't have any description";
+    private string[] myProperties;
+    private string[] npcDialogueList;
+    private bool isInteractable = false;
+    private bool isNpc = false;
+    private string myBasicMessage = "no basic message given";
 
 	void Start () {
 
-        allObjInfoList_File = FindObjectOfType<AllObjectInfoList_File>();
-        string[] interTagsList = allObjInfoList_File.WhatCanBeInteracted();
-        string[] messageList = allObjInfoList_File.WhatIsTheMessage();
+        allObjectInfoList_File = FindObjectOfType<AllObjectInfoList_File>();
+        allObjectPropertiesList_File = FindObjectOfType<AllObjectPropertiesList_File>();
+        allDialoguesList_File = FindObjectOfType<AllDialoguesList_File>();
 
-        //check what properties should current object has base on its tag
-        for(int i = 0; i < interTagsList.Length; i++)
+        isInteractable = allObjectInfoList_File.GetIsInteractable(tag);
+        myBasicMessage = allObjectInfoList_File.GetBasicMessageOf(tag);
+        myProperties = allObjectPropertiesList_File.GetPropertiesOfTag(tag);
+
+        isNpc = allDialoguesList_File.GetIsNpc(name);
+        if (isNpc)
         {
-            if(tag == interTagsList[i])
-            {
-                message = messageList[i];
-                //more properties
-                //
-                //etc
-            }
+            npcDialogueList = allDialoguesList_File.GetDialogueListOf(name);
+        }
+        else
+        {
+            //could be wrong
+            npcDialogueList = new string[1]{"not npc, no dialogue"};
         }
 
-		
+
 	}
 	
 
@@ -41,8 +55,23 @@ public class AssignProperties_Inter: MonoBehaviour {
         return name;
     }
 
-    public string GetMessage()
+    public string GetBasicMessage()
     {
-        return message;
+        return myBasicMessage;
+    }
+
+    public string[] GetObjectProperties()
+    {
+        return myProperties;
+    }
+
+    public bool GetIsInteractable()
+    {
+        return isInteractable;
+    }
+
+    public string[] GetNpcDialogueListOf(string npcName)
+    {
+        return npcDialogueList;
     }
 }

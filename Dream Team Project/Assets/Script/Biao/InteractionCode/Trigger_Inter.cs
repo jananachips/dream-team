@@ -10,19 +10,24 @@ public class Trigger_Inter : MonoBehaviour {
 
     public ActionsToGame_Inter ActionsOnScreen;
     public KeyListener_Inter KeyListener;
-    public AllObjectInfoList_File allObjectInfo_list;
+    public AllObjectInfoList_File allObjectInfoList_File;
+    //public AllObjectPropertiesList_File allobjectPropertiesList_File;
     public AllDialoguesList_File allDialogues_file;
 
 
 
-    private bool interactable = false;
-    private string[] InteractableTagsList;
+    //private string[] InteractableTagsList;
     private DialoguesFormat[] nameAndDialogues;
+    private string[] otherColliderProperties;
+
+
+    private bool interactable = false;
+    private string otherColliderTag;
+    private string otherColliderName;
+    private string otherColliderBasicMessage = "trigger failed to get message";
 
 	void Start () {
-        //some initialization can not put on start, especially when it's from another code, I guess bc it could be this method being 
-        //called when the other code it depend on hasn't finished its initialization
-        InteractableTagsList = allObjectInfo_list.WhatCanBeInteracted();
+        //InteractableTagsList = allObjectInfoList_File.WhatCanBeInteracted();
         nameAndDialogues = allDialogues_file.GetNameAndDialogues();
 	}
 
@@ -30,16 +35,20 @@ public class Trigger_Inter : MonoBehaviour {
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D otherCollider)
     {
+        AssignProperties_Inter otherColliderScript = otherCollider.GetComponent<AssignProperties_Inter>();
+        
+        interactable = otherColliderScript.GetIsInteractable();
+        otherColliderBasicMessage = otherColliderScript.GetBasicMessage();
+        otherColliderTag = otherCollider.tag;
+        otherColliderName = otherCollider.name;
 
-        string message, name;
-        if(collision.tag == "NPC")
+
+        if(otherCollider.tag == "NPC")
         {
-            //get the list
-            //nameAndDialogues = ActionsOnScreen.GetNameAndDialogues();
 
-            string otherName = collision.name;
+            string otherName = otherCollider.name;
             for(int i = 0; i < nameAndDialogues.Length; i++)
             {
                 if(nameAndDialogues[i].NpcName == otherName)
@@ -56,25 +65,13 @@ public class Trigger_Inter : MonoBehaviour {
         }
         else
         {
-            //get the list
-
-            for (int i = 0; i < InteractableTagsList.Length; i++)
-            {
-                if(InteractableTagsList[i] == collision.tag)
-                {
-                    interactable = true;
-                }
-            }
-
             if(interactable)
             { 
-                message = collision.GetComponent<AssignProperties_Inter>().GetMessage();
-                name = collision.GetComponent<AssignProperties_Inter>().GetName();
-                ActionsOnScreen.ShowMessage(name, message, transform);
+                ActionsOnScreen.ShowMessage(otherColliderName, otherColliderBasicMessage, transform);
                 interactable = false;
             }
 
-            }        
+        }        
 
     }
 
@@ -117,7 +114,7 @@ public class Trigger_Inter : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         //stop wait for input when player leave the area 
-
+        /*
         for (int i = 0; i < InteractableTagsList.Length; i++)
         {
             if(collision.tag == InteractableTagsList[i])
@@ -126,6 +123,7 @@ public class Trigger_Inter : MonoBehaviour {
                 ActionsOnScreen.ShowMessage("", "   :<\n  :<",transform, messageTime:1.5f );
             }
         }
+        */
 
     }
 

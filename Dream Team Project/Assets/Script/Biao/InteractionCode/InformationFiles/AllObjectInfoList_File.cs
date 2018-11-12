@@ -4,17 +4,47 @@ using UnityEngine;
 
 public class AllObjectInfoList_File : MonoBehaviour {
     [SerializeField]
-    public string[] InteractableTagsList;
+    public string[] interactableTagsList;
     [TextArea(3,10)]
-    public string[] CorrespondingMessage;
+    public string[] correspondingMessage;
 		
-    public string[] WhatCanBeInteracted()
+    public string[] GetWhatCanBeInteractedList()
     {
-        return InteractableTagsList;
+        return interactableTagsList;
     }
 
-    public string[] WhatIsTheMessage()
+    public string[] GetBasicMessageList()
     {
-        return CorrespondingMessage;
+        return correspondingMessage;
+    }
+
+    public string GetBasicMessageOf(string tagName)
+    {
+        for(int i = 0; i < interactableTagsList.Length; i++)
+        {
+            if(tagName == interactableTagsList[i])
+            {
+                return correspondingMessage[i];
+            }
+        }
+
+        Debug.Log("Tag " + tagName + " not found, so no corresponding basic message");
+        return null;
+    }
+
+    public bool GetIsInteractable(string tagName)
+    {
+        for(int i = 0; i < interactableTagsList.Length; i++)
+        {
+            if(tagName == interactableTagsList[i])
+            {
+                return true;
+            }
+        }
+        
+        //Debug.Log("Tag " + tagName + " not found in interactable list");
+        return false;
+
+
     }
 }

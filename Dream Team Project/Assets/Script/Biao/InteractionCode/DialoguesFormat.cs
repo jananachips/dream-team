@@ -6,6 +6,6 @@ using UnityEngine;
 public class DialoguesFormat{
     public string NpcName;
     [TextArea(1,5)]
-    public string[] dialogue;
+    public string[] NpcDialogueList;
     
 }
