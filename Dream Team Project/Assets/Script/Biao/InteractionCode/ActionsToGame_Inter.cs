@@ -112,8 +112,8 @@ public class ActionsToGame_Inter: MonoBehaviour {
                 messageTime = messageLastTime;
             }
 
-            //
-            tempWindow = Instantiate(popOutWindow, wantedTransform);
+            //tempWindow = Instantiate(popOutWindow, wantedTransform);
+            tempWindow = Instantiate(popOutWindow);
             showingInfo = true;
 
             Destroy(tempWindow, messageTime);
