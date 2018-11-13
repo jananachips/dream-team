@@ -14,14 +14,22 @@ public class KeyListener_Inter : MonoBehaviour {
 	}
 	
 	void Update () {
+
+        if (StopNow)
+        {
+            StopNow = false;
+            ContinueListeningKeys = false;
+            WorkingNow = false;
+        }
+
         if (ContinueListeningKeys)
         {
             WorkingNow = true;
-            //may be shouldn't be here
-            KeyDetected = false;
+            //KeyDetected = false;
+
             if(Input.GetKeyDown(KeyToListen))
             {
-                Debug.Log("continue pressed");
+                Debug.Log("key pressed");
                 KeyDetected = true;
             }else if (Input.GetKeyDown(KeyCode.N))
             {
@@ -40,6 +48,8 @@ public class KeyListener_Inter : MonoBehaviour {
     {
         if (KeyDetected)
         {
+            //
+            KeyDetected = false;
             return true;
         }
         else
@@ -53,13 +63,17 @@ public class KeyListener_Inter : MonoBehaviour {
         return WorkingNow;
     }
 
-    public bool StopActionNow()
+    public void StopActionNow()
+    {
+        ContinueListeningKeys = false;
+        StopNow = true;
+        
+    }
+
+    public bool IsStopActionNow()
     {
         if (StopNow)
         {
-            StopNow = false;
-            ContinueListeningKeys = false;
-            WorkingNow = false;
             return true;
         }
         else

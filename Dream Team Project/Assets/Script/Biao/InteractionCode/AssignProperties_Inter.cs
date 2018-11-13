@@ -13,13 +13,14 @@ public class AssignProperties_Inter: MonoBehaviour {
     private AllObjectPropertiesList_File allObjectPropertiesList_File;
     private AllDialoguesList_File allDialoguesList_File;
 
-    public string[] myProperties;
+    public string[] myActionProperties;
+    public string[] myDataProperties;
     public string[] npcDialogueList;
     public bool isInteractable = false;
     public bool isNpc = false;
     public string myBasicMessage = "no basic message given";
 
-	void Start () {
+	void Awake () {
 
 
         allObjectInfoList_File = FindObjectOfType<AllObjectInfoList_File>();
@@ -31,16 +32,11 @@ public class AssignProperties_Inter: MonoBehaviour {
 
         if (isInteractable)
         {
-            myProperties = allObjectPropertiesList_File.GetPropertiesOfTag(tag);
-            if(myProperties.Length == 0)
-            {
-                myProperties = new string[1] { "Empty properties" };
-            }
-        }
-        else
-        {
-            myProperties = new string[1] { "not interactable, not properties given" };
-        }
+            myActionProperties = allObjectPropertiesList_File.GetActionPropertiesOfTag(tag);
+            myDataProperties = allObjectPropertiesList_File.GetDataPropertiesOfTag(tag);
+
+
+         }
 
         isNpc = allDialoguesList_File.GetIsNpc(name);
         if (isNpc)
@@ -77,9 +73,14 @@ public class AssignProperties_Inter: MonoBehaviour {
         return myBasicMessage;
     }
 
-    public string[] GetOtherObjectProperties()
+    public string[] GetObjectActionProperties()
     {
-        return myProperties;
+        return myActionProperties;
+    }
+
+    public string[] GetObjectDataProperties()
+    {
+        return myDataProperties;
     }
 
     public bool GetIsInteractable()

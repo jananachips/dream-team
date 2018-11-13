@@ -14,13 +14,16 @@ public class ScreenMessage_Manager : MonoBehaviour {
     private string otherColliderName;
     private string objectName;
     private AssignProperties_Inter objectScript;
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+
+    private bool stopConversation = false;
+
+
+    public void StopShowingMessage()
+    {
+        KeyListener.StopActionNow();
+        screenMessage_Action.ShowMessage("", " :<", messageTime: 1.5f );
+    }
+
 
     public void ScreenMessageConditionHandler(Collider2D otherCollider, AssignProperties_Inter objectScript_temp)
     {
@@ -50,18 +53,19 @@ public class ScreenMessage_Manager : MonoBehaviour {
     IEnumerator  NpcConversation(int conversationLength, float gapTime)
     {
         bool UserPressedKey = false;
-        bool StopConversation = false;
+        stopConversation = false;
         bool isStillTyping = false;
 
         for(int j = 0;  j < conversationLength && KeyListener.ContinueListeningKeys;)
         {
             UserPressedKey = KeyListener.GetIsKeyPressed();
+            //Debug.Log("user pressed key");
             //keep checking if the user pressed end key (n for this case)
-            StopConversation = KeyListener.StopActionNow();
+            stopConversation = KeyListener.IsStopActionNow();
             
 
             //for loop will not end if no j++ or Stopconversation is not true
-            if (UserPressedKey && !StopConversation )
+            if (UserPressedKey && !stopConversation )
             {
                 isStillTyping = screenMessage_Action.GetIsStillTyping();
                 if (isStillTyping)
@@ -79,10 +83,11 @@ public class ScreenMessage_Manager : MonoBehaviour {
 
 
             }
-            else if(StopConversation)
+            else if(stopConversation)
             {
                 Debug.Log("stop it");
-                screenMessage_Action.NpcConversation("", " :<", messageLastTime:1.5f );
+                //screenMessage_Action.NpcConversation("", " :<", messageLastTime:1.5f );
+                screenMessage_Action.ShowMessage("", " :<", messageTime: 1.5f );
             }
             
             yield return new WaitForSeconds(gapTime);

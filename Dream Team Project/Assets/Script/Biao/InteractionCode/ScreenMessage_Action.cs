@@ -9,7 +9,7 @@ public class ScreenMessage_Action : MonoBehaviour {
     public Text popText;
     public Text continueRemainder;
     //public AudioSource typingSoundController;
-    public KeyListener_Inter KeyListener;
+    //public KeyListener_Inter KeyListener;
     public float messageLastTime = 3f;
 
 
@@ -17,8 +17,8 @@ public class ScreenMessage_Action : MonoBehaviour {
     private bool showingInfo = false;
     private GameObject tempWindow;
 
-    private float TypingGap = 0.03f;
-    private float Default_TypingGap = 0.03f;
+    private float TypingGap = 0.01f;
+    private float Default_TypingGap = 0.01f;
     private bool stillTyping = false;
 
     private IEnumerator TypingEffectCoroutine;
@@ -75,10 +75,12 @@ public class ScreenMessage_Action : MonoBehaviour {
 
         foreach(char letter in aString)
         {
+            //Debug.Log("typing gap now: " + typingGap_Temp);
             //main message
             if(typingGap_Temp > 0)
             {
                 resultString = resultString + letter.ToString();
+                //Debug.Log("result string is: " + resultString);
             }
             else
             {
