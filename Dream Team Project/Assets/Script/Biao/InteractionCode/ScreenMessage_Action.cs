@@ -11,6 +11,7 @@ public class ScreenMessage_Action : MonoBehaviour {
     //public AudioSource typingSoundController;
     //public KeyListener_Inter KeyListener;
     public float messageLastTime = 3f;
+    public float NPCMessageLastTime = 6f;
 
 
     //stop messages from overlapping each other
@@ -115,6 +116,10 @@ public class ScreenMessage_Action : MonoBehaviour {
             if(messageTime <= 0)
             {
                 messageTime = messageLastTime;
+            }
+            if (isNpc)
+            {
+                messageTime = NPCMessageLastTime;
             }
 
             tempWindow = Instantiate(popOutWindow);

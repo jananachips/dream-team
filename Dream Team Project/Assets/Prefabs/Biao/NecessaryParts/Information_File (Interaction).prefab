@@ -9,102 +9,102 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1604932861161298}
+  m_RootGameObject: {fileID: 1363132371648128}
   m_IsPrefabAsset: 1
---- !u!1 &1076566535642062
+--- !u!1 &1070614953243422
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4106030776461442}
-  - component: {fileID: 114276240172548346}
-  m_Layer: 0
-  m_Name: AllObjectInfoList_File
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1483926198673776
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4323610866659426}
-  - component: {fileID: 114264060003553602}
+  - component: {fileID: 4974669912328352}
+  - component: {fileID: 114242549160753940}
   m_Layer: 0
   m_Name: AllDialoguesList_File
-  m_TagString: Untagged
+  m_TagString: DataFile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1604932861161298
+--- !u!1 &1363132371648128
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4606020485099822}
+  - component: {fileID: 4546474327518960}
   m_Layer: 0
-  m_Name: Information_Files (Interaction)
+  m_Name: Information_File (Interaction)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4106030776461442
+--- !u!1 &1529752196862524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4192109417421050}
+  - component: {fileID: 114372896831097774}
+  m_Layer: 0
+  m_Name: AllObjectInfoList_File
+  m_TagString: DataFile
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4192109417421050
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076566535642062}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 616.45, y: -460.73, z: -8.082346}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4606020485099822}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4323610866659426
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483926198673776}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1127.5115, y: -211.43517, z: -10.064989}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4606020485099822}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4606020485099822
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1604932861161298}
+  m_GameObject: {fileID: 1529752196862524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4546474327518960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4546474327518960
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363132371648128}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4106030776461442}
-  - {fileID: 4323610866659426}
+  - {fileID: 4192109417421050}
+  - {fileID: 4974669912328352}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114264060003553602
+--- !u!4 &4974669912328352
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1070614953243422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4546474327518960}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114242549160753940
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483926198673776}
+  m_GameObject: {fileID: 1070614953243422}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f498df01b32084449c5eecde647af5a, type: 3}
@@ -113,23 +113,23 @@ MonoBehaviour:
   npcAndDialogues:
   - NpcName: NPC_Introduction
     NpcDialogueList:
-    - What's up, this is the NPC_Introduction
-    - Everytime you meet an NPC in front of you, you can talk to him/her by pressing
-      "E"
-    - If you want to speed up the dialogue, press "E" too
-    - Try it with in next dialogue
-    - 'Example of super long dialogue
+    - I will teach you basic skill to play this game
+    - 'Left Arrow/ "A" to move left
 
-      daf das fsd fdsf  sdafsdgfhsfghfjg fjgjfgh j kgjfjg fjgfjgkfjgj jkjkgjfkj'
-    - Did you get it?
-    - To end a conversation, press "n"
-    - Here is the test
-    - 'Example of super long dialogue
+      Right Arrow/ "D" to move right
 
-      456561 5646 411 156 156 1 165156 13116 1561 16 1615615616 651561 6151 1515'
-    - test ended
-    - I believe you get it, bye then
-  - NpcName: NPC_Regular
+      "Space" to jump'
+    - "Press \"E\" to interact with object \nOr speed up conversation"
+    - Press "Esc" to the "pause window"
+    - Press "N" to end this conversation
+    - Oh, "N" will not work if it's the last sentence.....
+    - For most of the time, you can also end conversation by leaving the trigger area
+    - But...I am special,
+    - you don't want an introduction to stop and restart becasue someone can not stay
+      in on place and listen
+    - Introduction End...
+    - You can leave now...
+  - NpcName: NPC_Example
     NpcDialogueList:
     - I'm a regular NPC prefab
     - That means you can drag the prefab to scene
@@ -140,12 +140,23 @@ MonoBehaviour:
     - To add dialogues, do so in "AllDialoguesList_File"
     - There are plenty of examples
     - END conversation!
---- !u!114 &114276240172548346
+  - NpcName: NPC_BasicScene
+    NpcDialogueList:
+    - Hi, I'm NPC_BasicScene
+    - This is the basic scene you can copy and drag the pre-defined prefabs to your
+      copy
+    - So you will create a new Level
+    - This Scene include all necessary component for the prefabs to run correctly
+    - So DO NOT delete things comes with basic scene
+    - That's it, conversation end, press "N" to end or leave me alone
+    - Please end the conversation!!!!!
+    - '............................'
+--- !u!114 &114372896831097774
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076566535642062}
+  m_GameObject: {fileID: 1529752196862524}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2609f2f71da2e7b49ac96057230e01f4, type: 3}

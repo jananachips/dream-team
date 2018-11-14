@@ -10,6 +10,8 @@ public class ScreenMessage_Manager : MonoBehaviour {
 
     public ScreenMessage_Action screenMessage_Action;
 
+    private bool isStillTalking = false;
+
     private string otherColliderTag;
     private string otherColliderName;
     private string objectName;
@@ -20,6 +22,12 @@ public class ScreenMessage_Manager : MonoBehaviour {
     public void Start()
     {
         KeyListener = FindObjectOfType<KeyListener_Inter>();
+        screenMessage_Action = FindObjectOfType<ScreenMessage_Action>();
+    }
+
+    public bool GetIsStillTalking()
+    {
+        return isStillTalking;
     }
 
     public void StopShowingMessage()
@@ -60,6 +68,7 @@ public class ScreenMessage_Manager : MonoBehaviour {
         stopConversation = false;
         bool isStillTyping = false;
 
+
         for(int j = 0;  j < conversationLength && KeyListener.ContinueListeningKeys;)
         {
             UserPressedKey = KeyListener.GetIsKeyPressed();
@@ -71,6 +80,8 @@ public class ScreenMessage_Manager : MonoBehaviour {
             //for loop will not end if no j++ or Stopconversation is not true
             if (UserPressedKey && !stopConversation )
             {
+                //this is the beginning of real conversation, other messages are just basic message everyone has
+                isStillTalking = true;
                 isStillTyping = screenMessage_Action.GetIsStillTyping();
                 if (isStillTyping)
                 {
@@ -90,7 +101,6 @@ public class ScreenMessage_Manager : MonoBehaviour {
             else if(stopConversation)
             {
                 Debug.Log("stop it");
-                //screenMessage_Action.NpcConversation("", " :<", messageLastTime:1.5f );
                 screenMessage_Action.ShowMessage("", " :<", messageTime: 1.5f );
             }
             
@@ -99,6 +109,7 @@ public class ScreenMessage_Manager : MonoBehaviour {
 
 
         KeyListener.ContinueListeningKeys = false;
+        isStillTalking = false;
     }
 
 

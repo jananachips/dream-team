@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class TextBlinking : MonoBehaviour {
     //private Text textToBlink;
-    public float blinkRate_S = 0.5f;
+    private float blinkRate_S = 0.1f;
+    public float alphaMaxVal = 1.0f;
+    public float alphaMinVal = 0.05f;
+    private float alphaChangeVal = 0.05f;
 
     private bool keepRunning = true;
     private Color originalColor;
@@ -37,18 +40,19 @@ public class TextBlinking : MonoBehaviour {
 
             if(alphaState == "decrease")
             {
-                alphaVal = alphaVal - 0.1f;
-                if(alphaVal <= 0.1f)
+                alphaVal = alphaVal - alphaChangeVal;
+                if(alphaVal <= alphaMinVal)
                 {
                     alphaState = "increase";
+                    //yield return new WaitForSecondsRealtime(1f);
                 }
 
                 GetComponent<Text>().color = new Color(originalColor.r, originalColor.g, originalColor.b, alphaVal);
 
             }else
             {
-                alphaVal = alphaVal + 0.1f;
-                if(alphaVal >= 0.9f)
+                alphaVal = alphaVal + alphaChangeVal;
+                if(alphaVal >= alphaMaxVal)
                 {
                     alphaState = "decrease";
                 }

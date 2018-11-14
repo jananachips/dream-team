@@ -11,6 +11,7 @@ TagManager:
   - HeavyBox
   - Container
   - Teleporter
+  - DataFile
   layers:
   - Default
   - TransparentFX
