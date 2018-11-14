@@ -77,4 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2fb13613c67994a804fb75ac6d60e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenMessage_Manager: {fileID: 0}
+  collider_XOffSet: 1
+  collider_yOffSet: 1
+  endMessageOnLeave: 1

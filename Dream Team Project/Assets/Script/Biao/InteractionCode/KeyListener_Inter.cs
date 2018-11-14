@@ -29,11 +29,11 @@ public class KeyListener_Inter : MonoBehaviour {
 
             if(Input.GetKeyDown(KeyToListen))
             {
-                Debug.Log("key pressed");
+                //Debug.Log("key pressed");
                 KeyDetected = true;
             }else if (Input.GetKeyDown(KeyCode.N))
             {
-                Debug.Log("skipped");
+                //Debug.Log("skipped");
                 StopNow = true;
             }
         }else if (!ContinueListeningKeys)

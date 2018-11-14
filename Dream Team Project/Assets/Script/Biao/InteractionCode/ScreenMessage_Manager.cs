@@ -6,7 +6,7 @@ using UnityEngine;
 public class ScreenMessage_Manager : MonoBehaviour {
 
     public float ListenGapTime = 0.01f;
-    public KeyListener_Inter KeyListener;
+    private KeyListener_Inter KeyListener;
 
     public ScreenMessage_Action screenMessage_Action;
 
@@ -17,6 +17,10 @@ public class ScreenMessage_Manager : MonoBehaviour {
 
     private bool stopConversation = false;
 
+    public void Start()
+    {
+        KeyListener = FindObjectOfType<KeyListener_Inter>();
+    }
 
     public void StopShowingMessage()
     {

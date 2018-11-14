@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleport_OneWay_Manager : MonoBehaviour {
-    public KeyListener_Inter keyListener;
-    public float checkInputPeriod = 0.005f;
+    [Header("Time interval to check the user input")]
+    public float checkInputInterval = 0.005f;
+    //public bool explodeAfterUse = true;
+    //public bool followPlayerTeleport = true;
 
+
+    private KeyListener_Inter keyListener;
     private Teleport_OneWay_Action teleport_OneWay_Action;
     private bool jobDone = false;
-
+    private IEnumerator IEnumerator_temp;
     
     private void Start()
     {
@@ -16,30 +20,26 @@ public class Teleport_OneWay_Manager : MonoBehaviour {
         keyListener = FindObjectOfType<KeyListener_Inter>();
     }
 
-    public void ReadyToTeleport(Transform from, Transform to)
+    public void ReadyToTeleport(Transform from, Transform to, Transform teleportTransform)
     {
         jobDone = false;
         keyListener.ContinueListeningKeys = true;
 
         //will pause here
-        StartCoroutine(doTeleport(checkInputPeriod, from, to));
+        IEnumerator_temp = doTeleport(checkInputInterval, from, to, teleportTransform); 
+        StartCoroutine(IEnumerator_temp);
 
     }
 
 
-    IEnumerator doTeleport(float checkPeriod, Transform from, Transform to)
+    IEnumerator doTeleport(float checkPeriod, Transform from, Transform to, Transform teleportTransform)
     {
         while(!jobDone)
         {
-            /*
-            if(keyListener.ContinueListeningKeys == false)
-            {
-                keyListener.ContinueListeningKeys = true;
-            }
-            */
             if (keyListener.GetIsKeyPressed())
             {
                 teleport_OneWay_Action.DoTeleport(from, to);
+                //teleport_OneWay_Action.FollowAndExplode(teleportTransform, to,explodeAfterUse, followPlayerTeleport);
                 jobDone = true;
                 Debug.Log("teleport got key");
             }
@@ -54,6 +54,8 @@ public class Teleport_OneWay_Manager : MonoBehaviour {
     {
         Debug.Log("expire called");
         keyListener.StopActionNow();
+        //stop the coroutine that is wait to teleport
+        StopCoroutine(IEnumerator_temp);
     }
 
 

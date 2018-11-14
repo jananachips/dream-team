@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1604932861161298}
+  m_IsPrefabAsset: 1
+--- !u!1 &1076566535642062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4106030776461442}
+  - component: {fileID: 114276240172548346}
+  m_Layer: 0
+  m_Name: AllObjectInfoList_File
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1483926198673776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4323610866659426}
+  - component: {fileID: 114264060003553602}
+  m_Layer: 0
+  m_Name: AllDialoguesList_File
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1604932861161298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4606020485099822}
+  m_Layer: 0
+  m_Name: Information_Files (Interaction)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4106030776461442
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076566535642062}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 616.45, y: -460.73, z: -8.082346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4606020485099822}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4323610866659426
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483926198673776}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1127.5115, y: -211.43517, z: -10.064989}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4606020485099822}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4606020485099822
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604932861161298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4106030776461442}
+  - {fileID: 4323610866659426}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114264060003553602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483926198673776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f498df01b32084449c5eecde647af5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcAndDialogues:
+  - NpcName: NPC_Introduction
+    NpcDialogueList:
+    - What's up, this is the NPC_Introduction
+    - Everytime you meet an NPC in front of you, you can talk to him/her by pressing
+      "E"
+    - If you want to speed up the dialogue, press "E" too
+    - Try it with in next dialogue
+    - 'Example of super long dialogue
+
+      daf das fsd fdsf  sdafsdgfhsfghfjg fjgjfgh j kgjfjg fjgfjgkfjgj jkjkgjfkj'
+    - Did you get it?
+    - To end a conversation, press "n"
+    - Here is the test
+    - 'Example of super long dialogue
+
+      456561 5646 411 156 156 1 165156 13116 1561 16 1615615616 651561 6151 1515'
+    - test ended
+    - I believe you get it, bye then
+  - NpcName: NPC_Regular
+    NpcDialogueList:
+    - I'm a regular NPC prefab
+    - That means you can drag the prefab to scene
+    - And a/ a lot "me" will be created
+    - DO NOT press "apply" if you just want change one NPC
+    - '"apply" will apply your changes to everyone use this prefab'
+    - Please Change my Name to "NPC_something you like" style
+    - To add dialogues, do so in "AllDialoguesList_File"
+    - There are plenty of examples
+    - END conversation!
+--- !u!114 &114276240172548346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076566535642062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2609f2f71da2e7b49ac96057230e01f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableTagsList:
+  - Box
+  - HeavyBox
+  - NPC
+  - Container
+  - Teleporter
+  correspondingMessage:
+  - Hi, I'm Regular Box
+  - Hi, I'm heavy Box, I can't be moved
+  - Hi, Npc here
+  - I'm container, I got treasures
+  - I'm teleporter, be careful with your choice, qPress "E" to teleport
