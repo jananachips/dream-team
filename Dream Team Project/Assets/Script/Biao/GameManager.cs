@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour {
 
     public void LoadNextLevel()
     {
+        ResetTimeScale();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour {
 
     public void LoadMainMenu()
     {
+        ResetTimeScale();
         SceneManager.LoadScene(MainMenuIndex);        
     }
 
