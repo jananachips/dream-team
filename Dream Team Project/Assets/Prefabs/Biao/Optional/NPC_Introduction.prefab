@@ -151,7 +151,7 @@ MonoBehaviour:
   isInteractable: 1
   isNpc: 1
   DoesDamage: 1
-  Damage: 100
+  Damage: 2
   healthAmt: 1
   UseMyDialogues: 0
   myBasicMessage: no basic message given
