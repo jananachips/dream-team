@@ -5,9 +5,13 @@ using UnityEngine;
 //this will belong to interactable objects
 
 public class ObjectTrigger_Interaction : MonoBehaviour {
-    //user can edit
-    public float collider_XOffSet = 1;
-    public float collider_yOffSet = 1;
+    [Header("Use My Addjusted Value, not default")]
+    public bool UseMyAddjustedValue = false;
+    public float collider_XSize = 1;
+    public float collider_ySize = 1;
+    public bool displayMessages = true;
+
+    [Space]
     [Header("End Message On Exit Trigger")]
     public bool endMessageOnLeave = true;
     public string playerTag = "Player"; 
@@ -15,6 +19,7 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
     //will read from default file
     public ScreenMessage_Manager screenMessage_Manager;
     private AssignProperties_Inter myScript;
+    private BoxCollider2D myBoxCollider2D;
 
     private GameObject parent;
     private string parentTag;
@@ -25,24 +30,37 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
     private Collider2D otherCollider;
     private void Start()
     {
+        myBoxCollider2D = GetComponent<BoxCollider2D>();
         myScript = GetComponentInParent<AssignProperties_Inter>();
         parentName = this.transform.parent.name;
         parentTag = this.transform.parent.tag;
+
+        if (!UseMyAddjustedValue)
+        {
+            collider_XSize = 2f;
+            collider_ySize = 2f;
+            displayMessages = true;
+        }
+
+        myBoxCollider2D.size = new Vector2(collider_XSize, collider_ySize);
 
         screenMessage_Manager = FindObjectOfType<ScreenMessage_Manager>();
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollider_temp)
     {
-        otherCollider = otherCollider_temp;
-        stillTalking = screenMessage_Manager.GetIsStillTalking();
-        if (otherCollider.tag == playerTag && !stillTalking)
+        if (displayMessages)
         {
-            //always show basic info (for npc, the start conversation message)
-            screenMessage_Manager.ScreenMessageConditionHandler(otherCollider, myScript);
-        }
+            otherCollider = otherCollider_temp;
+            stillTalking = screenMessage_Manager.GetIsStillTalking();
+            if (otherCollider.tag == playerTag && !stillTalking)
+            {
+                //always show basic info (for npc, the start conversation message)
+                screenMessage_Manager.ScreenMessageConditionHandler(otherCollider, myScript);
+            }
 
-        //Debug.Log("the enter still talking value: " + stillTalking);
+            //Debug.Log("the enter still talking value: " + stillTalking);
+        }
 
 
     }

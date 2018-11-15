@@ -125,10 +125,13 @@ MonoBehaviour:
     - Oh, "N" will not work if it's the last sentence.....
     - For most of the time, you can also end conversation by leaving the trigger area
     - But...I am special,
-    - you don't want an introduction to stop and restart becasue someone can not stay
-      in on place and listen
+    - becasue someone can not stay in on place and listen to my instructions
     - Introduction End...
-    - You can leave now...
+    - In this Level, Use the Teleporter to finish this game
+    - Oh, by the way, don't get to close, some people will beat you if you do
+    - Take care of your health at the bottom....
+    - There will be some items that recovery your health as well, don't worry
+    - conversation end....
   - NpcName: NPC_Example
     NpcDialogueList:
     - I'm a regular NPC prefab
@@ -168,9 +171,11 @@ MonoBehaviour:
   - NPC
   - Container
   - Teleporter
+  - WinningGate
   correspondingMessage:
   - Hi, I'm Regular Box
   - Hi, I'm heavy Box, I can't be moved
   - Hi, Npc here
   - I'm container, I got treasures
   - I'm teleporter, be careful with your choice, qPress "E" to teleport
+  - This is the WinningGate

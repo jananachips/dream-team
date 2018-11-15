@@ -12,6 +12,7 @@ TagManager:
   - Container
   - Teleporter
   - DataFile
+  - WinningGate
   layers:
   - Default
   - TransparentFX

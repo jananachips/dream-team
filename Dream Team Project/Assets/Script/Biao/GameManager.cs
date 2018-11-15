@@ -10,11 +10,19 @@ public class GameManager : MonoBehaviour {
 
     public GameObject pauseScreen;
     public GameObject settingsWindow;
+    public GameObject winnningWindow;
+    public GameObject loseWindow;
+    public GameObject startGameWindow;
     public int MainMenuIndex = 0;
 
     private bool gamePaused = false;
-    //I will do this later
-    //private bool OtherWindowsOpened = FindObjectOfType<OtherWindowsActive>().GetStatuesOtherWindow();
+    void Awake()
+    {
+        if(startGameWindow.activeSelf== false)
+        {
+            ResetTimeScale();    
+        }
+    }
 
     private void Update()
     {
@@ -43,12 +51,7 @@ public class GameManager : MonoBehaviour {
     //to use this in other code:  FindObjectOfType<GameManager>().RestartGame()
     public void RestartGame()
     {
-        //build index: when we build the game, from top to bottom, start from 0
-        //Debug.Log("Restarting ");
-        if (gamePaused)
-        {
-            ResumeGame();
-        }
+        ResetTimeScale();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
     }
@@ -56,14 +59,14 @@ public class GameManager : MonoBehaviour {
     public void PauseGame()
     {
         //freeze time
-        Time.timeScale = 0f;
+        PauseTimeScale();
         gamePaused = true;
         pauseScreen.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
+        ResetTimeScale();
         gamePaused = false;
         pauseScreen.SetActive(false);
     }
@@ -83,6 +86,25 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(MainMenuIndex);        
     }
 
+    public void WinTheGame()
+    {
+        PauseTimeScale();
+        winnningWindow.SetActive(true);
+    }
 
+    public void PauseTimeScale()
+    {
+        Time.timeScale = 0f;
+    }
 
+    public void ResetTimeScale()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void LostTheGame()
+    {
+        PauseTimeScale();
+        loseWindow.SetActive(true);
+    }
 }

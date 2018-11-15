@@ -11,11 +11,20 @@ public class AssignProperties_Inter: MonoBehaviour {
 
 
 
-    [Header("Use My Addjusted Value, not default")]
+    [Header("Use My Addjusted Basic Value, not default")]
     public bool UseMyAddjustedValue = false;
     [Space]
     public bool isInteractable = false;
     public bool isNpc = false;
+    public bool DoesDamage = false;
+    public float Damage = 0.5f;
+
+    //public bool hasHealth = true;
+    public float healthAmt = 1f;
+
+
+    [Header("check if you want create dialogues, instead of default one")]
+    public bool UseMyDialogues = false;
     public string myBasicMessage = "no basic message given";
     [TextArea(3,10)] public string[] npcDialogueList;
 
@@ -33,14 +42,21 @@ public class AssignProperties_Inter: MonoBehaviour {
         if (!UseMyAddjustedValue)
         {
             isInteractable = allObjectInfoList_File.GetIsInteractable(tag);
-            myBasicMessage = allObjectInfoList_File.GetBasicMessageOf(tag);
             isNpc = allDialoguesList_File.GetIsNpc(name);
+            DoesDamage = false;
+            Damage = 0.5f;
+            //hasHealth = true;
+            healthAmt = 1f;
+        }
+        if (!UseMyDialogues)
+        {
+            myBasicMessage = allObjectInfoList_File.GetBasicMessageOf(tag);
         }
 
 
         if (isNpc)
         {
-            if(npcDialogueList.Length == 0 && !UseMyAddjustedValue)
+            if(npcDialogueList.Length == 0 && !UseMyDialogues)
             {
                 npcDialogueList = allDialoguesList_File.GetDialogueListOf(name);
             }

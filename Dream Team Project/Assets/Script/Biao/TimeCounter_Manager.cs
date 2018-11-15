@@ -4,15 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class TimeCounter : MonoBehaviour {
+public class TimeCounter_Manager: MonoBehaviour {
 
     public float TimeElapsed = 0f;
     public string TimeString;
 
-    public Text timeCounter_Text;
 
 	void Start () {
-        timeCounter_Text = GetComponent<Text>();
 	}
 
     private void FixedUpdate()
@@ -28,7 +26,10 @@ public class TimeCounter : MonoBehaviour {
 
         TimeString = TimeH.ToString() + "H : " + TimeM.ToString() + "M : " + TimeS.ToString() + "S";
 
-        timeCounter_Text.text = TimeString;
     }
 
+    public string GetTimeCountString()
+    {
+        return TimeString;
+    }
 }
