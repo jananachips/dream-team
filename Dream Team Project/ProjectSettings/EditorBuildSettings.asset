@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu Scene.unity
     guid: 439c7cb6f2d4347caa1118529f947673
   - enabled: 1
+    path: Assets/Scenes/IntroLevel_One.unity
+    guid: 601739e558ab5e740a4a51d379ea508c
+  - enabled: 1
     path: Assets/Scenes/Ariel's Scene.unity
     guid: 5d379b0a2fda3475b91c56c7b046080e
   - enabled: 1
