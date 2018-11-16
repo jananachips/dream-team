@@ -10,8 +10,9 @@ public class PlayerConditions_Manager : MonoBehaviour {
     public float PlayerCurrentHealth = 5;
     public float healthBarXOffset = 0;
     public float healthBarYOffset = 10;
-
-    public GameManager gameManager;
+    [Space]
+    private GameManager gameManager;
+    private Canvas PlayerHealthBar_Window;
     public Slider PlayerHealthSlider;
     public Transform PlayerTransform;
 
@@ -21,6 +22,9 @@ public class PlayerConditions_Manager : MonoBehaviour {
 
 	void Start () {
         gameManager = FindObjectOfType<GameManager>();
+        //PlayerHealthBar_Window = GetComponentInChildren
+        //PlayerHealthSlider = GetComponentInChildren<player>
+        
 
         if (!UseMyValue)
         {
