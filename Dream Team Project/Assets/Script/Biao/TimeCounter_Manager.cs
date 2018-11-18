@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeCounter_Manager: MonoBehaviour {
 
     public float TimeElapsed = 0f;
-    public string TimeString;
+    private string TimeString = "00H : 00M : 00S";
 
 
 	void Start () {

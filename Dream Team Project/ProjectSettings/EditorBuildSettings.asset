@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 439c7cb6f2d4347caa1118529f947673
   - enabled: 1
     path: Assets/Scenes/IntroLevel_One.unity
-    guid: 601739e558ab5e740a4a51d379ea508c
+    guid: 6143749b825f3a9409a599ae8f5d72f7
   - enabled: 1
     path: Assets/Scenes/Ariel's Scene.unity
     guid: 5d379b0a2fda3475b91c56c7b046080e

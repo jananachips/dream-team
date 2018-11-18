@@ -7,7 +7,7 @@ public class SoundSettings : MonoBehaviour {
     public float StartingVolume = 0.5f;
     public float CurrentVolume = 0.5f;
 
-    private AudioSource[] audioControllerList ; 
+    public AudioSource[] audioControllerList ; 
 
 	void Start () {
         audioControllerList = audioControllers.GetAllAudioControllers();

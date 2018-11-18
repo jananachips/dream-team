@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TimeWindow_Text : MonoBehaviour {
 
-    public Text timeWindow_Text;
-    public TimeCounter_Manager timeCounter_Manager;
+    private Text timeWindow_Text;
+    private TimeCounter_Manager timeCounter_Manager;
 
     private void Awake()
     {

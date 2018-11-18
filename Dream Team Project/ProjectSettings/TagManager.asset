@@ -13,6 +13,7 @@ TagManager:
   - Teleporter
   - DataFile
   - WinningGate
+  - MessageBox
   layers:
   - Default
   - TransparentFX

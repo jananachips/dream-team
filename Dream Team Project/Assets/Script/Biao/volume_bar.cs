@@ -4,23 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class volume_bar : MonoBehaviour {
-    public Scrollbar volumnBar;
+    public Scrollbar volumeBar;
     public SoundSettings soundSetting;
 
     private float volume;
 	void Start () {
-        volumnBar.value = soundSetting.CurrentVolume;
+        soundSetting = FindObjectOfType<SoundSettings>();
+        volumeBar.value = soundSetting.CurrentVolume;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        		
+	void LateUpdate () {
+        if(soundSetting.CurrentVolume != volumeBar.value)
+        {
+            volumeBar.value = soundSetting.CurrentVolume;
+        }
 	}
 
     public void BarVolumeChange()
     {
-        //Debug.Log(volumnBar.value);
-        volume = volumnBar.value;
+        volume = volumeBar.value;
         soundSetting.ChangeAllVolumeTo(volume);
         soundSetting.CurrentVolume = volume;
 

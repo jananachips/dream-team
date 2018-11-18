@@ -9,7 +9,7 @@ public class PickRandomBgm : MonoBehaviour {
     private AudioClip[] bgms_List;
     private AudioClip aBgm;
     //public AudioSource audioController;
-	void Start () {
+	void Awake() {
         AssignRandomClip();
 	}
 	

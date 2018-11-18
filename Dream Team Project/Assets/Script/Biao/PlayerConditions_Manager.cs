@@ -12,7 +12,7 @@ public class PlayerConditions_Manager : MonoBehaviour {
     public float healthBarYOffset = 10;
     [Space]
     private GameManager gameManager;
-    private Canvas PlayerHealthBar_Window;
+    //private Canvas PlayerHealthBar_Window;
     public Slider PlayerHealthSlider;
     public Transform PlayerTransform;
 
@@ -44,6 +44,7 @@ public class PlayerConditions_Manager : MonoBehaviour {
         if(PlayerCurrentHealth <= 0)
         {
             gameManager.LostTheGame();
+            this.enabled = false;
         }
 	}
 
@@ -59,7 +60,7 @@ public class PlayerConditions_Manager : MonoBehaviour {
         PlayerCurrentHealth = PlayerCurrentHealth + health;
     }
 
-    public float GetCurrentHealth()
+    public float GetPlayerCurrentHealth()
     {
         return PlayerCurrentHealth;
     }
