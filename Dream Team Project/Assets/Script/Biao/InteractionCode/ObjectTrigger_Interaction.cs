@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class ObjectTrigger_Interaction : MonoBehaviour {
     [Header("Use My Addjusted Value, not default")]
+    public bool notChangeCollider = false;
     public bool UseMyAddjustedValue = false;
     public float collider_XSize = 1;
     public float collider_ySize = 1;
     public bool displayMessages = true;
+    public bool onlyTriggerOnce = false;
+    public int triggerCount = 0;
 
     [Space]
     [Header("End Message On Exit Trigger")]
@@ -42,7 +45,10 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
             displayMessages = true;
         }
 
-        myBoxCollider2D.size = new Vector2(collider_XSize, collider_ySize);
+        if (!notChangeCollider)
+        {
+            myBoxCollider2D.size = new Vector2(collider_XSize, collider_ySize);
+        }
 
         screenMessage_Manager = FindObjectOfType<ScreenMessage_Manager>();
     }
@@ -57,6 +63,14 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
             {
                 //always show basic info (for npc, the start conversation message)
                 screenMessage_Manager.ScreenMessageConditionHandler(otherCollider, myScript);
+
+                //new
+                triggerCount++;
+                if (onlyTriggerOnce && triggerCount >= 1)
+                {
+                    //disable collider
+                    myBoxCollider2D.enabled = false;
+                }
             }
 
             //Debug.Log("the enter still talking value: " + stillTalking);
@@ -70,7 +84,7 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
     {
         stillTalking = screenMessage_Manager.GetIsStillTalking();
 
-        if (endMessageOnLeave || !stillTalking)
+        if (endMessageOnLeave && !stillTalking)
         {
             screenMessage_Manager.StopShowingMessage();
         }

@@ -47,16 +47,6 @@ public class Player_MovAndAnimation: MonoBehaviour {
         //trigger the playerwalk animation
         playerAnimator.SetFloat("PlayerSpeed", Mathf.Abs(curHorizontalSpeed)); 
 
-        /*
-        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            rb.position = rb.position + new Vector2(speed * -1 * Time.deltaTime, 0);
-
-        }else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)){
-            rb.position = rb.position + new Vector2(speed * 1 * Time.deltaTime, 0);
-        }
-        */
-
 
         if(Input.GetButtonDown("Jump") && isGround)
         {
