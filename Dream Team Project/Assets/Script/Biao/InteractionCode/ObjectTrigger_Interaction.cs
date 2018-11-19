@@ -86,6 +86,9 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
 
         if (endMessageOnLeave && !stillTalking)
         {
+            //Debug.Log("end conversation");
+            //Debug.Log("my name: " + name);
+            //Debug.Log("other: " + collision.name);
             screenMessage_Manager.StopShowingMessage();
         }
     }

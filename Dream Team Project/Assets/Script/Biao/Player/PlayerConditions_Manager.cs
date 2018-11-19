@@ -15,6 +15,7 @@ public class PlayerConditions_Manager : MonoBehaviour {
     //private Canvas PlayerHealthBar_Window;
     public Slider PlayerHealthSlider;
     public Transform PlayerTransform;
+    public Transform DeathHeight;
 
 
     private float PlayerMaxHealth;
@@ -22,9 +23,7 @@ public class PlayerConditions_Manager : MonoBehaviour {
 
 	void Start () {
         gameManager = FindObjectOfType<GameManager>();
-        //PlayerHealthBar_Window = GetComponentInChildren
-        //PlayerHealthSlider = GetComponentInChildren<player>
-        
+        PlayerTransform = transform;
 
         if (!UseMyValue)
         {
@@ -37,14 +36,18 @@ public class PlayerConditions_Manager : MonoBehaviour {
 	}
 	
 	void Update () {
-        //DesiredHealthBarPosition = Camera.main.WorldToScreenPoint(PlayerTransform.position);
-        //PlayerHealthSlider.transform.position = DesiredHealthBarPosition;
 
         PlayerHealthSlider.value = PlayerCurrentHealth / PlayerMaxHealth;
         if(PlayerCurrentHealth <= 0)
         {
             gameManager.LostTheGame();
             this.enabled = false;
+        }
+
+        if(PlayerTransform.position.y <= DeathHeight.position.y)
+        {
+            //PlayerCurrentHealth = 0;
+            DecreasePlayerHealthBy(1f);
         }
 	}
 

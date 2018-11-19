@@ -33,6 +33,9 @@ public class OneWayTeleport_SpecT : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exit in specT");
-        teleportOneWay_Manager.TeleportExpire();
+        if(collision.tag == "Player")
+        {
+            teleportOneWay_Manager.TeleportExpire();
+        }
     }
 }
