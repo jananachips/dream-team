@@ -184,7 +184,7 @@ MonoBehaviour:
   displayMessages: 1
   onlyTriggerOnce: 0
   triggerCount: 0
-  endMessageOnLeave: 1
+  endMessageOnLeave: 0
   playerTag: Player
   screenMessage_Manager: {fileID: 0}
 --- !u!114 &114963337203188654

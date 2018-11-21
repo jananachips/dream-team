@@ -15,6 +15,7 @@ TagManager:
   - WinningGate
   - MessageBox
   - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
