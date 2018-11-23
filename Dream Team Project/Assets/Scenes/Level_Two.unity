@@ -2304,6 +2304,11 @@ Prefab:
       propertyPath: settingsWindow
       value: 
       objectReference: {fileID: 930755037}
+    - target: {fileID: 114480660989608998, guid: 569c2f63e062d0a4ab82167277df1921,
+        type: 2}
+      propertyPath: settingsWindowManager
+      value: 
+      objectReference: {fileID: 930755037}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569c2f63e062d0a4ab82167277df1921, type: 2}
   m_IsPrefabAsset: 0
