@@ -5,6 +5,9 @@ using UnityEngine;
 public class Teleport_OneWay_Manager : MonoBehaviour {
     [Header("Time interval to check the user input")]
     public float checkInputInterval = 0.005f;
+    [Header("Number of times can be activated")]
+    public float disableAfter = 5f;
+    public float workCount = 0;
     //public bool explodeAfterUse = true;
     //public bool followPlayerTeleport = true;
 
@@ -34,14 +37,15 @@ public class Teleport_OneWay_Manager : MonoBehaviour {
 
     IEnumerator doTeleport(float checkPeriod, Transform from, Transform to, Transform teleportTransform)
     {
-        while(!jobDone)
+        while(!jobDone && workCount < disableAfter)
         {
             if (keyListener.GetIsKeyPressed())
             {
                 teleport_OneWay_Action.DoTeleport(from, to);
                 //teleport_OneWay_Action.FollowAndExplode(teleportTransform, to,explodeAfterUse, followPlayerTeleport);
                 jobDone = true;
-                Debug.Log("teleport got key");
+                workCount++;
+                //Debug.Log("teleport got key");
             }
             yield return new WaitForSeconds(checkPeriod);
         }
@@ -52,7 +56,7 @@ public class Teleport_OneWay_Manager : MonoBehaviour {
 
     public void TeleportExpire()
     {
-        Debug.Log("expire called");
+        //Debug.Log("expire called");
         keyListener.StopActionNow();
         //stop the coroutine that is wait to teleport
         StopCoroutine(IEnumerator_temp);

@@ -11,7 +11,7 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
     public float collider_XSize = 1;
     public float collider_ySize = 1;
     public bool displayMessages = true;
-    public bool onlyTriggerOnce = false;
+    public bool onlyDisplayOnce = false;
     public int triggerCount = 0;
 
     [Space]
@@ -66,10 +66,11 @@ public class ObjectTrigger_Interaction : MonoBehaviour {
 
                 //new
                 triggerCount++;
-                if (onlyTriggerOnce && triggerCount >= 1)
+                if (onlyDisplayOnce && triggerCount >= 1)
                 {
                     //disable collider
-                    myBoxCollider2D.enabled = false;
+                    //myBoxCollider2D.enabled = false;
+                    displayMessages = false;
                 }
             }
 

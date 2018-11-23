@@ -27,6 +27,6 @@ public class Teleport_OneWay_Action : MonoBehaviour {
     public void DoTeleport(Transform from, Transform to)
     {
         from.position = to.position;
-        Debug.Log("action done!!!!!!!");
+        //Debug.Log("action done!!!!!!!");
     }
 }
