@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour {
         winnningWindow.SetActive(true);
     }
 
-    public void PauseTimeScale(float after = 0.1f)
+    public void PauseTimeScale(float after = 0.0f)
     {
         StartCoroutine(DoPauseTimeScale(after));
     }

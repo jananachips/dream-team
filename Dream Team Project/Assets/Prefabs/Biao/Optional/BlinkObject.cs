@@ -49,7 +49,7 @@ public class BlinkObject : MonoBehaviour {
                 GetComponent<SpriteRenderer>().color = new Color(origColor.r, origColor.g, origColor.b, alphaVal);
             }
 
-            Debug.Log("alpha: " + alphaVal);
+            //Debug.Log("alpha: " + alphaVal);
             yield return new WaitForSeconds(blinkRate_S);
         }
 
