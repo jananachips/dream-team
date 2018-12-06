@@ -8,26 +8,32 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+
     public GameObject pauseScreen;
     public GameObject settingsWindow;
     public GameObject winnningWindow;
     public GameObject loseWindow;
-    public GameObject startGameWindow;
+    //public GameObject startGameWindow;
     public int MainMenuIndex = 0;
 
+    public GameObject[] popOutWindows;
+
+
+    //public GameObject curActiveWindowUI_Manager;
+    //public UIManagerList_Format UIManagersList;
+
+
     private bool gamePaused = false;
+    private bool stopHotKeys = false;
     void Awake()
     {
-        if(startGameWindow.activeSelf== false)
-        {
-            ResetTimeScale();    
-        }
+        ResetTimeScale();
     }
 
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Escape) ) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !stopHotKeys) {
             if (settingsWindow.activeSelf)
             {
                 //if settingswindow is active, close it first
@@ -48,7 +54,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    //to use this in other code:  FindObjectOfType<GameManager>().RestartGame()
+    public void StopHotKeys()
+    {
+        stopHotKeys = true;
+    }
+
+    public void ResumeHotKeys()
+    {
+        stopHotKeys = false;
+    }
+
     public void RestartGame()
     {
         ResetTimeScale();
@@ -99,8 +114,15 @@ public class GameManager : MonoBehaviour {
         winnningWindow.SetActive(true);
     }
 
-    public void PauseTimeScale()
+    public void PauseTimeScale(float after = 0.0f)
     {
+        StartCoroutine(DoPauseTimeScale(after));
+    }
+
+    IEnumerator DoPauseTimeScale(float after_temp)
+    {
+        yield return new WaitForSecondsRealtime(after_temp);
+        //FIXME: later
         Time.timeScale = 0f;
     }
 
@@ -113,5 +135,14 @@ public class GameManager : MonoBehaviour {
     {
         PauseTimeScale();
         loseWindow.SetActive(true);
+
+        //FIXME: doesn't work very well
+
+        //clean up player dialogues
+        popOutWindows = GameObject.FindGameObjectsWithTag("MessageBox");
+        for(int i = 1; i < popOutWindows.Length; i++)
+        {
+            popOutWindows[i].SetActive(false);
+        }
     }
 }

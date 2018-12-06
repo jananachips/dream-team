@@ -5,21 +5,21 @@ using Unity.Jobs;
 
 public class OneWayTeleport_SpecT : MonoBehaviour {
 
-    [Header("Additional Trigger behavior")]
-    public string InfoForYou;
+    //[Header("Additional Trigger behavior")]
+    //public string InfoForYou;
 
     public Teleport_OneWay_Manager teleportOneWay_Manager;
 
     private void Start()
     {
-        InfoForYou = "Additional Trigger Behavior for OneWayTeleporter";
+        //InfoForYou = "Additional Trigger Behavior for OneWayTeleporter";
     }
 
 
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if(otherCollider.tag == "Player")
+        if(otherCollider.tag == "Player" || otherCollider.tag == "Box") 
         {
             Transform destination = this.transform.parent.GetChild(1);
             Transform teleportTransform = this.transform.parent;
@@ -28,11 +28,24 @@ public class OneWayTeleport_SpecT : MonoBehaviour {
         
     }
 
+    private void OnTriggerStay2D(Collider2D otherCollider)
+    {
+        if(otherCollider.tag == "Player" || otherCollider.tag == "Box") 
+        {
+            Transform destination = this.transform.parent.GetChild(1);
+            Transform teleportTransform = this.transform.parent;
+            teleportOneWay_Manager.ReadyToTeleport(otherCollider.transform, destination, teleportTransform);
+        }
+    }
+
 
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("exit in specT");
-        teleportOneWay_Manager.TeleportExpire();
+        //Debug.Log("exit in specT");
+        if(collision.tag == "Player")
+        {
+            teleportOneWay_Manager.TeleportExpire();
+        }
     }
 }

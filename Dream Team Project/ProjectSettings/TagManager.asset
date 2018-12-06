@@ -13,6 +13,9 @@ TagManager:
   - Teleporter
   - DataFile
   - WinningGate
+  - MessageBox
+  - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -55,4 +58,7 @@ TagManager:
     locked: 0
   - name: foreground
     uniqueID: 922461349
+    locked: 0
+  - name: UI
+    uniqueID: 684499133
     locked: 0
