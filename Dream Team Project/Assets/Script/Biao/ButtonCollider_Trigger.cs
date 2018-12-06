@@ -30,6 +30,7 @@ public class ButtonCollider_Trigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
+        Debug.Log("collided in " + otherCollider.tag);
         if(otherCollider.tag != "Ground" && !hasOneItem)
         {
             hasOneItem = true;
