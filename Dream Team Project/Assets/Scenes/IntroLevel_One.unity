@@ -447,7 +447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MainMenu
+  m_Text: Main Menu
 --- !u!222 &74818290
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -966,7 +966,7 @@ Prefab:
     - target: {fileID: 114435327562395966, guid: db433da258fcbc44ca891597b90e9e59,
         type: 2}
       propertyPath: myBasicMessage
-      value: '"Space" to jump'
+      value: Press the space bar to jump.
       objectReference: {fileID: 0}
     - target: {fileID: 4021895779346684, guid: db433da258fcbc44ca891597b90e9e59, type: 2}
       propertyPath: m_LocalScale.x
@@ -1215,7 +1215,7 @@ Prefab:
     - target: {fileID: 114435327562395966, guid: db433da258fcbc44ca891597b90e9e59,
         type: 2}
       propertyPath: myBasicMessage
-      value: This box could be useful
+      value: This box could be useful.
       objectReference: {fileID: 0}
     - target: {fileID: 114559542474626322, guid: db433da258fcbc44ca891597b90e9e59,
         type: 2}
@@ -2970,7 +2970,7 @@ Prefab:
     - target: {fileID: 114435327562395966, guid: db433da258fcbc44ca891597b90e9e59,
         type: 2}
       propertyPath: myBasicMessage
-      value: Press the button to lower the bridge
+      value: Press the button to lower the bridge.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db433da258fcbc44ca891597b90e9e59, type: 2}
@@ -3761,7 +3761,7 @@ Prefab:
     - target: {fileID: 114435327562395966, guid: db433da258fcbc44ca891597b90e9e59,
         type: 2}
       propertyPath: myBasicMessage
-      value: Left Click to attack the enemy patrol
+      value: Left click to attack the enemy patrol.
       objectReference: {fileID: 0}
     - target: {fileID: 4021895779346684, guid: db433da258fcbc44ca891597b90e9e59, type: 2}
       propertyPath: m_LocalScale.y
@@ -3956,6 +3956,11 @@ Prefab:
     - target: {fileID: 4021895779346684, guid: db433da258fcbc44ca891597b90e9e59, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114435327562395966, guid: db433da258fcbc44ca891597b90e9e59,
+        type: 2}
+      propertyPath: myBasicMessage
+      value: Press "A" or Left Arrow to move left and "D" or Right Arrow to move right.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db433da258fcbc44ca891597b90e9e59, type: 2}

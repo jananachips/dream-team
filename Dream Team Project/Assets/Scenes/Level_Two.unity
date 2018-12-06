@@ -447,7 +447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MainMenu
+  m_Text: Main Menu
 --- !u!222 &74818290
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2923,8 +2923,8 @@ Prefab:
     - target: {fileID: 114435327562395966, guid: db433da258fcbc44ca891597b90e9e59,
         type: 2}
       propertyPath: myBasicMessage
-      value: There are many interactable items that you can activate by pressing "E"
-        when close enough
+      value: There are many interactable items that you can use by pressing "E" when
+        close enough.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db433da258fcbc44ca891597b90e9e59, type: 2}
