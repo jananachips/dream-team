@@ -16,7 +16,7 @@ public class TempGround : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.tag != "Ground")
+        if(collision.transform.tag == "Player")
         {
             blinkObject.DoBlinkObject();
             StartCoroutine(DisableAfter(destroyAfter));
