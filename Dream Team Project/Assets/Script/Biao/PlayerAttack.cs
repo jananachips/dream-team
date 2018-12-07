@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 
     public float attackDegree = -360f;
-
+    public Animator playerAnimator;
 
     private float rotateRate_Denominator = 15f;
     public float gapTime = 0.001f;
@@ -23,6 +23,7 @@ public class PlayerAttack : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0) )
         {
+
             StartCoroutine(ChangeWeaponRotationTo(rotateRate));
         }
 	}
@@ -33,8 +34,10 @@ public class PlayerAttack : MonoBehaviour {
     {
         for(int i = 0; i < rotateRate_Denominator; i++)
         {
+            playerAnimator.SetBool("PlayerSmack", true);
             transform.parent.Rotate(0, 0, angleRate);
             yield return new WaitForSeconds(gapTime);
+            playerAnimator.SetBool("PlayerSmack", false);
         }
     }
 
