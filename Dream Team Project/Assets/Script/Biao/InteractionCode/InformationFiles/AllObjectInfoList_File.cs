@@ -28,7 +28,7 @@ public class AllObjectInfoList_File : MonoBehaviour {
             }
         }
 
-        //Debug.Log("Tag " + tagName + " not found, so no corresponding basic message");
+        Debug.Log("Tag " + tagName + " not found, so no corresponding basic message");
         return null;
     }
 

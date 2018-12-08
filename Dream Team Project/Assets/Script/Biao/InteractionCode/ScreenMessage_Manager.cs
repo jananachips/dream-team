@@ -45,12 +45,11 @@ public class ScreenMessage_Manager : MonoBehaviour {
         otherColliderName = otherCollider.name;
 
         objectScript = objectScript_temp;
-        //objectName = objectScript.name;
+        objectName = objectScript.name;
 
         if(otherColliderTag == "Player" && objectScript.isInteractable)
         {
-            //screenMessage_Action.ShowMessage(objectName, objectScript.myBasicMessage,  isNpc:objectScript.isNpc);
-            screenMessage_Action.ShowMessage("", objectScript.myBasicMessage,  isNpc:objectScript.isNpc);
+            screenMessage_Action.ShowMessage(objectName, objectScript.myBasicMessage,  isNpc:objectScript.isNpc);
 
             if (objectScript.isNpc)
             {

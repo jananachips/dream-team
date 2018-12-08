@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1808868564024260}
+  m_RootGameObject: {fileID: 1332081279869694}
   m_IsPrefabAsset: 1
---- !u!1 &1275979188445192
+--- !u!1 &1192693628868198
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4624376464608382}
-  - component: {fileID: 61683437141270826}
-  - component: {fileID: 114694737453429506}
+  - component: {fileID: 4767657424564698}
+  - component: {fileID: 61172563489282932}
+  - component: {fileID: 114897830841210734}
   m_Layer: 0
   m_Name: ObjectTrigger_Interactable
   m_TagString: Untagged
@@ -28,18 +28,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1808868564024260
+--- !u!1 &1332081279869694
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4994835612236576}
-  - component: {fileID: 114726736480464472}
-  - component: {fileID: 212577663102468326}
-  - component: {fileID: 61878580061228352}
-  - component: {fileID: 114719939624522070}
+  - component: {fileID: 4977181847256186}
+  - component: {fileID: 114861399539953164}
+  - component: {fileID: 212623595874174346}
+  - component: {fileID: 61839197235204890}
+  - component: {fileID: 114318158368811634}
   m_Layer: 0
   m_Name: NPC_Introduction
   m_TagString: NPC
@@ -47,39 +47,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4624376464608382
+--- !u!4 &4767657424564698
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1275979188445192}
+  m_GameObject: {fileID: 1192693628868198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4994835612236576}
+  m_Father: {fileID: 4977181847256186}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4994835612236576
+--- !u!4 &4977181847256186
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808868564024260}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -59.850002, y: 3.9, z: 0}
+  m_GameObject: {fileID: 1332081279869694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.47, y: -2.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4624376464608382}
+  - {fileID: 4767657424564698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61683437141270826
+--- !u!61 &61172563489282932
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1275979188445192}
+  m_GameObject: {fileID: 1192693628868198}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -99,12 +99,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0531101, y: 1.9370265}
   m_EdgeRadius: 0
---- !u!61 &61878580061228352
+--- !u!61 &61839197235204890
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808868564024260}
+  m_GameObject: {fileID: 1332081279869694}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -124,66 +124,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114694737453429506
+--- !u!114 &114318158368811634
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1275979188445192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e2fb13613c67994a804fb75ac6d60e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notChangeCollider: 0
-  UseMyAddjustedValue: 0
-  collider_XSize: 1
-  collider_ySize: 1
-  displayMessages: 1
-  onlyTriggerOnce: 0
-  triggerCount: 0
-  endMessageOnLeave: 0
-  playerTag: Player
-  screenMessage_Manager: {fileID: 0}
---- !u!114 &114719939624522070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808868564024260}
+  m_GameObject: {fileID: 1332081279869694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5328dec8fa7ab314e9b253d4a94e5b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectProperties: {fileID: 114726736480464472}
---- !u!114 &114726736480464472
+  objectProperties: {fileID: 114861399539953164}
+--- !u!114 &114861399539953164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808868564024260}
+  m_GameObject: {fileID: 1332081279869694}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcbb839842cecce4a8d88dd2a6050707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseMyAddjustedValue: 0
+  UseMyAddjustedValue: 1
   isInteractable: 1
   isNpc: 1
   DoesDamage: 1
-  ReceiveDamage: 0
-  Damage: 2
+  Damage: 100
   healthAmt: 1
   UseMyDialogues: 0
   myBasicMessage: no basic message given
   npcDialogueList: []
---- !u!212 &212577663102468326
+--- !u!114 &114897830841210734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192693628868198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2fb13613c67994a804fb75ac6d60e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseMyAddjustedValue: 0
+  collider_XSize: 1
+  collider_ySize: 1
+  displayMessages: 1
+  endMessageOnLeave: 0
+  playerTag: Player
+  screenMessage_Manager: {fileID: 0}
+--- !u!212 &212623595874174346
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808868564024260}
+  m_GameObject: {fileID: 1332081279869694}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
